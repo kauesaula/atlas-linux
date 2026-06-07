@@ -1,0 +1,8 @@
+*.kdbx
+*.env
+*.smbcredentials
+_referencia.md
+
+*.tmp
+*.swp
+*~

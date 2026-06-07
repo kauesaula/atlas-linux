@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Linux · Guia de Campo das Distros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/interactive.css">
+</head>
+<body>
+<div class="bg-fx"></div><div class="bg-grid"></div><div class="bg-grain"></div>
+
+<div class="topbar">
+  <span class="dot"></span>
+  <span class="prompt"><b>linux</b>@<span class="c">atlas</span>:~$ cat distros.md <span class="cur"></span></span>
+</div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">manual de campo</div>
+  <h1 class="title">Atlas <span class="grad">Linux</span></h1>
+  <p class="subtitle">O mapa do ecossistema — das bases milenares aos compositores Wayland mais brilhantes em 'r/unixporn'.</p>
+  <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já manja, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
+  <div class="meta-row">
+    <span class="chip"><b>24</b> distros</span>
+    <span class="chip"><b>6</b> window managers</span>
+    <span class="chip"><b>2</b> shells Quickshell</span>
+    <span class="chip"><b>7</b> conceitos-base</span>
+    <span class="chip">cores = <b>famílias</b></span>
+  </div>
+</header>
+</div>
+
+<div class="wrap"><div class="layout">
+
+<nav class="toc">
+  <div class="grp">// começo</div>
+  <a href="#fundamentos">00 · Fundamentos</a>
+  <a href="#familias">01 · As famílias</a>
+  <div class="grp">// debian</div>
+  <a href="#debian">Debian</a>
+  <a href="#ubuntu">Ubuntu</a>
+  <a href="#mint-zorin">Mint &amp; Zorin</a>
+  <a href="#pop">Pop!_OS</a>
+  <a href="#leves">MX &amp; hardware fraco</a>
+  <div class="grp">// arch</div>
+  <a href="#arch">Arch Linux</a>
+  <a href="#endeavour">EndeavourOS</a>
+  <a href="#manjaro">Manjaro</a>
+  <a href="#cachyos">CachyOS</a>
+  <a href="#garuda">Garuda</a>
+  <a href="#artix">Artix</a>
+  <a href="#omarchy">Omarchy</a>
+  <div class="grp">// fedora · suse</div>
+  <a href="#fedora">Fedora</a>
+  <a href="#nobara">Nobara</a>
+  <a href="#bazzite">Bazzite</a>
+  <a href="#opensuse">openSUSE</a>
+  <div class="grp">// segurança</div>
+  <a href="#kali">Kali Linux</a>
+  <a href="#tails">Tails</a>
+  <div class="grp">// filosóficas</div>
+  <a href="#gentoo">Gentoo</a>
+  <a href="#nixos">NixOS</a>
+  <a href="#slackware">Slackware</a>
+  <div class="grp">// além do linux</div>
+  <a href="#freebsd">FreeBSD</a>
+  <a href="#android-pi">Android &amp; Raspberry Pi</a>
+  <div class="grp">// camada visual</div>
+  <a href="#wm">Window Managers</a>
+  <a href="#quickshell">Shells (Quickshell)</a>
+  <div class="grp">// decisão</div>
+  <a href="#guia">Qual distro escolher?</a>
+  <a href="#quiz">Quiz de decisão</a>
+</nav>
+
+<main>
+
+<!-- ============ TOOLBAR INTERATIVA ============ -->
+<div class="toolbar" id="toolbar" role="region" aria-label="Filtro e busca de distros">
+  <div class="tb-search">
+    <svg class="tb-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" id="search" placeholder="Buscar distro, WM, conceito… (ex.: gaming, NVIDIA, rolling)" autocomplete="off" aria-label="Buscar no Atlas">
+    <button type="button" class="tb-clear" id="search-clear" aria-label="Limpar busca" hidden>&times;</button>
+  </div>
+  <div class="tb-filters" id="filters" role="group" aria-label="Filtrar por família">
+    <!-- chips injetados por js/explorer.js -->
+  </div>
+  <div class="tb-actions">
+    <span class="tb-count" id="result-count" aria-live="polite"></span>
+    <button type="button" class="tb-btn" id="toggle-all" aria-pressed="false">Recolher tudo</button>
+  </div>
+</div>
+<p class="tb-empty" id="empty-state" hidden>Nenhum resultado para a busca/filtro atuais. <button type="button" class="tb-reset" id="empty-reset">Limpar tudo</button></p>
+
+<!-- ============ FUNDAMENTOS ============ -->
+<section id="fundamentos" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>00</span> · o vocabulário mínimo</div>
+    <h2 class="sec-title">Fundamentos, sem dor</h2>
+    <p class="sec-intro">Antes de comparar distros, sete peças. Toda distro é uma <b>combinação dessas peças</b> com escolhas e enfeites diferentes por cima. Entenda isso e o resto vira só "qual sabor".</p>
+  </div>
+
+  <div class="concepts">
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+      <h4>Kernel</h4>
+      <div class="term">o núcleo</div>
+      <p>O coração do sistema. É o programa que conversa diretamente com o <b>hardware</b> (CPU, memória, disco, placa de vídeo) e distribui esses recursos pros seus programas. <b>"Linux"</b>, no sentido estrito, é só isso: o kernel criado por Linus Torvalds.</p>
+      <div class="ana">Analogia: <b>o motor do carro</b>. Você quase nunca mexe nele, mas é o que move tudo.</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
+      <h4>Shell</h4>
+      <div class="term">a linha de comando</div>
+      <p>O programa que recebe seus <b>comandos em texto</b> e traduz pro sistema. Quando você digita num terminal, está falando com um shell — <b>Bash</b>, <b>Zsh</b> ou <b>Fish</b> são os mais comuns.</p>
+      <div class="ana">Cuidado: <b>"shell de comando" ≠ "shell de desktop"</b>. Mais pra frente o Quickshell usa "shell" no segundo sentido (a parte visual).</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
+      <h4>Systemd / Init</h4>
+      <div class="term">o gerente da partida</div>
+      <p>O <b>primeiro programa</b> a rodar quando o PC liga. Ele acorda todos os serviços (rede, áudio, login...) na ordem certa e os mantém vivos. <b>systemd</b> é o init padrão da maioria; alternativas como OpenRC e runit existem (vide Artix).</p>
+      <div class="ana">Analogia: <b>o gerente</b> que, de manhã, abre as portas e liga cada setor da loja.</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22V12"/></svg>
+      <h4>Gerenciador de Pacotes</h4>
+      <div class="term">package manager</div>
+      <p>A <b>loja + instalador + atualizador</b> tudo em um. Instala, atualiza e remove programas resolvendo dependências automaticamente. Cada família tem o seu: <b>apt</b> (Debian), <b>dnf</b> (Fedora), <b>pacman</b> (Arch), <b>zypper</b> (SUSE).</p>
+      <div class="ana">Analogia: a <b>App Store</b> do sistema — só que via comando e muito mais poderosa.</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 9h20"/></svg>
+      <h4>Desktop Environment</h4>
+      <div class="term">o DE · ambiente completo</div>
+      <p>O <b>pacote visual pronto e coeso</b>: barra de tarefas, menu, gerenciador de arquivos, configurações, tema — tudo integrado. <b>GNOME</b>, <b>KDE Plasma</b>, <b>Cinnamon</b> e <b>Xfce</b> são os grandes nomes.</p>
+      <div class="ana">Analogia: a <b>casa já mobiliada e decorada</b>, pronta pra morar.</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      <h4>Window Manager</h4>
+      <div class="term">o WM · só as janelas</div>
+      <p>A peça que <b>posiciona e desenha as janelas</b> — nada mais. Um DE inclui um WM por dentro, mas você pode usar um WM <b>sozinho</b> e montar o resto à mão. É aqui que vivem o <b>Hyprland</b>, <b>i3</b>, <b>Sway</b>.</p>
+      <div class="ana">Analogia: a <b>casa só com o esqueleto e as paredes</b> — você traz a mobília.</div>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18" r="3"/><path d="M15.5 7.5l-7 3M15.5 16.5l-7-3"/></svg>
+      <h4>Dotfiles</h4>
+      <div class="term">a sua configuração</div>
+      <p>Os arquivos de configuração (começam com <b>ponto</b>: <code>.bashrc</code>, <code>~/.config/...</code>) que guardam <b>todas as suas escolhas</b>. Versionados no Git, viram a <b>receita reproduzível</b> do seu sistema — recria seu visual em minutos numa máquina nova.</p>
+      <div class="ana">Analogia: a <b>planta da decoração</b>. Mudou de casa? É só seguir a planta de novo.</div>
+    </div>
+  </div>
+
+  <div class="callout lav">
+    <span class="tag">a fórmula mental</span>
+    <b>Distro = Kernel + Init + Gerenciador de Pacotes + (Desktop Environment ou Window Manager) + decisões de filosofia.</b> Quando duas distros parecem iguais, a diferença real está nessas escolhas e na comunidade por trás.
+  </div>
+
+  <h3 class="subhead"><span class="mk">#</span> Onde os programas moram</h3>
+  <p class="sec-intro" style="margin-top:0">Cada família tem seu gerenciador. A boa notícia de 2026: os formatos <b>universais</b> rodam em qualquer distro — por isso "trocar de distro" hoje quase nunca significa perder software.</p>
+  <table class="cmp">
+    <tr><th>Família</th><th>Gerenciador</th><th>Comando típico</th><th>Formato</th></tr>
+    <tr><td><b>Debian / Ubuntu</b></td><td>apt</td><td><code>apt install firefox</code></td><td>.deb</td></tr>
+    <tr><td><b>Fedora / RHEL</b></td><td>dnf</td><td><code>dnf install firefox</code></td><td>.rpm</td></tr>
+    <tr><td><b>Arch</b></td><td>pacman (+ yay/paru pro AUR)</td><td><code>pacman -S firefox</code></td><td>.pkg.tar.zst</td></tr>
+    <tr><td><b>openSUSE</b></td><td>zypper</td><td><code>zypper install firefox</code></td><td>.rpm</td></tr>
+    <tr><td><b>Gentoo</b></td><td>portage</td><td><code>emerge firefox</code></td><td>código-fonte</td></tr>
+    <tr><td><b>NixOS</b></td><td>nix</td><td>config declarativa</td><td>.nix</td></tr>
+  </table>
+  <div class="callout green">
+    <span class="tag">os universais — rodam em qualquer distro</span>
+    <b>Flatpak</b> (loja Flathub; o mais usado hoje) · <b>Snap</b> (da Canonical) · <b>AppImage</b> (um único executável portátil, estilo <code>.exe</code>). São eles que fazem a pergunta "qual distro?" pesar menos do que pesava em 2015.
+  </div>
+
+  <h3 class="subhead"><span class="mk">#</span> Os ambientes e os shells de comando</h3>
+  <div class="concepts" style="margin-top:4px">
+    <div class="ccard">
+      <h4 style="margin-bottom:12px">Desktop Environments mais comuns</h4>
+      <p><b>GNOME</b> — moderno e minimalista, fluxo tipo macOS/iPad (padrão de Ubuntu e Fedora).<br><b>KDE Plasma</b> — "Windows com esteroides", customizável até o último pixel.<br><b>Xfce</b> — leve e clássico.<br><b>Cinnamon</b> — tradicional, do time do Mint.<br><b>MATE</b> — cara de GNOME 2.<br><b>LXQt</b> — ultra-leve.<br><b>Budgie</b> — bonito e equilibrado.<br><b>COSMIC</b> — novo, escrito em Rust, da System76.</p>
+    </div>
+    <div class="ccard">
+      <h4 style="margin-bottom:4px">Shells de comando</h4>
+      <div class="term">o terminal — não confundir com o "shell de desktop"</div>
+      <p><b>Bash</b> — o padrão há décadas; confiável e conservador.<br><b>Zsh</b> — moderno e customizável (popular com Oh My Zsh + Powerlevel10k).<br><b>Fish</b> — amigável, autocomplete de fábrica.<br><b>Nushell</b> — radical: trata tudo como <b>dados estruturados em tabelas</b>. Excelente pra pipelines — especialmente atraente pra quem trabalha com dados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAMÍLIAS ============ -->
+<section id="familias" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>01</span> · a árvore genealógica</div>
+    <h2 class="sec-title">Quase ninguém começa do zero</h2>
+    <p class="sec-intro">A maioria das distros <b>nasce de outra</b>, herdando gerenciador de pacotes, repositórios e base. Saber a família já te diz 70% da história: o que usar pra instalar programas, onde buscar ajuda e o quão estável tende a ser. As cores deste guia seguem exatamente essas famílias.</p>
+  </div>
+
+  <div class="tree">
+    <div class="branch" style="--c:var(--fam-debian)">
+      <div class="root">Debian</div>
+      <div class="rootsub">apt · .deb · estabilidade</div>
+      <ul><li><b>Ubuntu</b> → Mint, Zorin, Pop!_OS</li><li><b>MX Linux</b> / antiX</li><li>Kali, Tails (segurança)</li><li>Raspberry Pi OS</li></ul>
+    </div>
+    <div class="branch" style="--c:var(--fam-arch)">
+      <div class="root">Arch</div>
+      <div class="rootsub">pacman · AUR · rolling</div>
+      <ul><li><b>EndeavourOS</b>, Manjaro</li><li><b>CachyOS</b>, Garuda</li><li>Artix (sem systemd)</li><li>Omarchy</li></ul>
+    </div>
+    <div class="branch" style="--c:var(--fam-fedora)">
+      <div class="root">Fedora / RHEL</div>
+      <div class="rootsub">dnf · .rpm · vanguarda</div>
+      <ul><li><b>Nobara</b> (gaming)</li><li><b>Bazzite</b> (atômica)</li><li>CentOS, Rocky (servidor)</li></ul>
+    </div>
+    <div class="branch" style="--c:var(--fam-suse)">
+      <div class="root">openSUSE</div>
+      <div class="rootsub">zypper · .rpm · YaST</div>
+      <ul><li><b>Leap</b> (estável)</li><li><b>Tumbleweed</b> (rolling)</li><li>Aeon / Kalpa (atômica)</li></ul>
+    </div>
+    <div class="branch" style="--c:var(--fam-indep)">
+      <div class="root">Independentes</div>
+      <div class="rootsub">base própria · filosofia</div>
+      <ul><li><b>Gentoo</b> (código-fonte)</li><li><b>NixOS</b> (declarativa)</li><li><b>Slackware</b> (a avó)</li><li>Void, Alpine</li></ul>
+    </div>
+    <div class="branch" style="--c:var(--fam-beyond)">
+      <div class="root">Fora da família</div>
+      <div class="rootsub">nem é Linux</div>
+      <ul><li><b>FreeBSD</b> (UNIX/BSD)</li><li><b>Android</b> (kernel Linux)</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEBIAN ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>02</span> · linhagem debian</div>
+    <h2 class="sec-title">A espinha dorsal do mundo</h2>
+    <p class="sec-intro">Se Linux fosse uma cidade, <b>Debian</b> seria as fundações sob o asfalto. Direta ou indiretamente, é a base de boa parte das distros que as pessoas realmente usam no dia a dia.</p>
+  </div>
+
+  <article id="debian" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Debian</span><span class="d-tag">desde 1993 · "o sistema universal"</span></div>
+    <div class="badges"><span class="badge fam">família · raiz</span><span class="badge fixo">lançamento pontual</span><span class="badge">apt · .deb</span><span class="badge">comunitária</span></div>
+    <p class="d-desc">O avô estável e respeitado. Mantido 100% pela comunidade, prioriza <b>robustez acima de tudo</b>: o ramo <span class="hl">Stable</span> só recebe software muito testado, o que o torna a escolha clássica para <b>servidores</b> que precisam rodar anos sem surpresa. Em troca, os programas são mais "velhos". Tem três ramos: Stable (sólido), Testing (equilíbrio) e Unstable/Sid (recente).</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">base</span><span class="v">Raiz — não deriva de ninguém</span></div>
+      <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME padrão; oferece KDE, Xfce, etc. na instalação</span></div>
+      <div class="frow"><span class="k">derivados</span><span class="v">Ubuntu, Mint, Kali, MX, Raspberry Pi OS…</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Admins, puristas, quem quer <b>estabilidade extrema</b></span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Servidores, infraestrutura, máquinas que "não podem cair"</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Docker, VPS, homelab, ambientes corporativos</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Aquele servidor web ou de banco de dados que liga e fica anos no ar sem reclamar.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="ubuntu" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Ubuntu</span><span class="d-tag">Canonical · o "Linux que todo mundo conhece"</span></div>
+    <div class="badges"><span class="badge fam">base · Debian</span><span class="badge fixo">LTS a cada 2 anos</span><span class="badge">apt + Snap</span><span class="badge">empresa</span></div>
+    <p class="d-desc">Pegou o Debian e o deixou <b>amigável e polido</b>, virando porta de entrada de milhões. Tem ciclo previsível: versões <span class="hl">LTS</span> (suporte de 5 anos) para quem quer sossego, e lançamentos a cada 6 meses para quem quer o mais novo. É o alvo nº1 de tutoriais e softwares comerciais — se um app suporta Linux, quase sempre suporta Ubuntu. Controverso pelo formato <b>Snap</b>, que divide opiniões.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME (bem customizado pela Canonical)</span></div>
+      <div class="frow"><span class="k">flavors</span><span class="v">Kubuntu (KDE), Xubuntu (Xfce), Lubuntu (LXQt), Ubuntu MATE, Budgie, Studio</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Iniciantes, empresas, desenvolvedores</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop diário, estações de trabalho, nuvem/servidor</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">AWS/Azure/GCP, CUDA/ML, documentação infinita</span></div>
+      <div class="frow wide"><span class="k">curiosidade</span><span class="v"><b>Omakub</b> (também do DHH) é uma "receita" que transforma um Ubuntu fresco num ambiente de dev opinativo — é o projeto-irmão do Omarchy, só que pra Ubuntu. Não é distro, é script.</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">A pessoa larga o Windows e cai aqui porque "todo tutorial assume Ubuntu". Funciona, e isso vale ouro.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="mint-zorin" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Linux Mint &amp; Zorin OS</span><span class="d-tag">os "ex-Windows que dão certo"</span></div>
+    <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">foco em conforto</span></div>
+    <p class="d-desc">Agrupei porque têm a <b>mesma missão</b>: receber quem vem do Windows sem susto. O <span class="hl">Mint</span> é o queridinho do iniciante — interface <b>Cinnamon</b> familiar (menu, barra embaixo), atualizações sem dramas, e by default <b>sem Snap</b>. O <span class="hl">Zorin</span> vai além no visual: tem um painel "Zorin Appearance" que reorganiza o desktop pra imitar Windows 11, macOS ou ChromeOS — ideal pra empresa migrar funcionários sem treinamento.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Mint: Cinnamon (também MATE, Xfce) · Zorin: GNOME muito customizado</span></div>
+      <div class="frow"><span class="k">edições</span><span class="v">Mint: Cinnamon/MATE/Xfce + LMDE (base Debian) · Zorin: Core, Lite, Education, Pro</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Iniciante total, famílias, ambiente não-técnico</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">PC da família, escritório, "só quero que funcione"</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Hardware antigo (versões Xfce/Lite), usuário que odeia mexer em config</span></div>
+      <div class="frow wide"><span class="k">mint × zorin</span><span class="v">Miram o mesmo público. O <b>Mint</b> tende a <b>envelhecer melhor</b> (Linux tradicional bem-feito); o <b>Zorin</b> <b>impressiona mais no primeiro dia</b> (fica visualmente igual ao que o usuário já conhece). Pra iniciante, qualquer um é escolha excelente.</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">É a recomendação padrão pra qualquer pessoa não-técnica que só quer navegar, ver vídeo e usar editor de textos sem pensar em "Linux".</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i></i><i></i><i></i><i></i><span class="lbl">iniciante puro</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="pop" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Pop!_OS</span><span class="d-tag">System76 · feita por uma fabricante de hardware</span></div>
+    <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">dev &amp; criativo</span></div>
+    <p class="d-desc">Criada pela System76 (que vende laptops Linux), foca em <b>produtividade</b> e <b>NVIDIA sem dor</b> — tem ISO própria com os drivers já embutidos, o que historicamente foi um pesadelo no Linux. Trouxe <b>tiling automático</b> pro grande público antes de virar moda. Está construindo o <span class="hl">COSMIC</span>, um desktop inteiro novo escrito em Rust — projeto ambicioso que muita gente acompanha.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">COSMIC (novo, em Rust) · antes GNOME + tiling</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Devs, engenheiros, criadores de conteúdo</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Programação, workstation com GPU, jogos casuais</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">GPUs NVIDIA, fluxo com muitas janelas, CUDA/ML</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">O dev que quer organização de janelas estilo tiling sem configurar um WM do zero — vem pronto. E é a opção <b>menos chata</b> pra subir Stable Diffusion / LLMs locais numa RTX, porque o suporte NVIDIA já vem resolvido.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="leves" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">MX Linux</span><span class="d-tag">+ o esquadrão do hardware fraco</span></div>
+    <div class="badges"><span class="badge fam">base · Debian</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">leveza</span></div>
+    <p class="d-desc">Por anos no topo do DistroWatch, o <b>MX</b> casa a estabilidade do Debian com leveza real: usa <b>Xfce</b> (também tem KDE e Fluxbox) e — curiosidade — vem com <b>SysVinit</b> por padrão, com systemd opcional. O grande trunfo são os <span class="hl">MX Tools</span>, uma central gráfica que resolve tarefas que normalmente exigiriam terminal. Perfeito pra ressuscitar máquinas com 4 GB de RAM.</p>
+    <div class="callout">
+      <span class="tag">o esquadrão "PC velho não morre"</span>
+      Quando o hardware é <b>muito</b> fraco, a regra é cortar peso. Opções por ordem de "fôlego mínimo":
+      <table class="cmp">
+        <tr><th>Distro</th><th>Truque</th><th>Roda bem em</th></tr>
+        <tr><td><b>antiX</b></td><td>Sem systemd, sem DE pesado (base do MX)</td><td>256 MB–1 GB RAM</td></tr>
+        <tr><td><b>Puppy Linux</b></td><td>Carrega <b>inteiro na RAM</b>; sistema minúsculo (~300 MB)</td><td>PCs de 20 anos atrás</td></tr>
+        <tr><td><b>Bodhi Linux</b></td><td>Desktop Moksha (Enlightenment), enxuto e bonito</td><td>512 MB+</td></tr>
+        <tr><td><b>Lubuntu</b></td><td>LXQt sobre Ubuntu — leve e familiar</td><td>1 GB+</td></tr>
+        <tr><td><b>Linux Lite</b></td><td>Foco explícito em ex-Windows com PC fraco</td><td>1 GB+</td></tr>
+        <tr><td><b>SparkyLinux</b></td><td>Versões "ultra-leves" sobre Debian</td><td>512 MB+</td></tr>
+        <tr><td><b>Xubuntu</b></td><td>Xfce oficial do Ubuntu — confortável</td><td>4 GB+</td></tr>
+        <tr><td><b>AbsoluteLinux</b></td><td>Slackware leve com IceWM, pronto pra desktop modesto</td><td>1 GB+</td></tr>
+      </table>
+      <div style="margin-top:14px;font-family:var(--mono);font-size:12.5px;color:var(--faint);line-height:1.9">
+        <b style="color:var(--amber)">regra prática:</b><br>
+        &lt; 1 GB → Puppy / antiX &nbsp;·&nbsp; 1–4 GB → Bodhi, Linux Lite, Lubuntu &nbsp;·&nbsp; 4–8 GB → MX, Xubuntu, Mint Xfce, Zorin Lite &nbsp;·&nbsp; 8 GB+ → qualquer distro roda.
+      </div>
+    </div>
+    <div class="ficha">
+      <div class="frow"><span class="k">público</span><span class="v">Quem tem netbook/PC antigo, repaginar lixo eletrônico</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Máquina secundária, projetos, doação de PCs</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">HDs lentos, pouca RAM, hardware de 32 bits (antiX/Puppy)</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Aquele notebook empacado no Windows que volta a abrir o navegador rápido só de trocar pra MX ou Puppy.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ ARCH ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>03</span> · linhagem arch</div>
+    <h2 class="sec-title">Controle total (e o famoso "btw")</h2>
+    <p class="sec-intro">Aqui mora a filosofia <b>"você constrói o seu"</b>: nada vem pronto, tudo é escolha sua. Pacote sempre na versão mais recente (<b>rolling release</b>), a lendária <b>Arch Wiki</b> como bíblia e o <b>AUR</b> — um repositório comunitário gigante onde quase tudo existe. É o terreno natural do ricing e dos dotfiles.</p>
+  </div>
+
+  <article id="arch" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Arch Linux</span><span class="d-tag">"I use Arch, btw"</span></div>
+    <div class="badges"><span class="badge fam">família · raiz</span><span class="badge rolling">rolling release</span><span class="badge">pacman + AUR</span><span class="badge">DIY</span></div>
+    <p class="d-desc">A distro do <b>minimalismo radical</b>: instala só o essencial e te deixa montar o resto, peça por peça. Isso parece intimidador, mas o resultado é um sistema que você <b>entende de cabo a rabo</b> e que tem exatamente o que você quer — nada de inchaço. Hoje há o instalador <code>archinstall</code> que facilita, mas o valor real continua sendo o aprendizado. A <span class="hl">Arch Wiki</span> é tão boa que até usuários de outras distros a consultam.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Nenhum por padrão — você escolhe (e é o ponto)</span></div>
+      <div class="frow"><span class="k">derivados</span><span class="v">EndeavourOS, Manjaro, CachyOS, Garuda, Omarchy, Artix, ArcoLinux, RebornOS</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Entusiasta, quem quer aprender Linux de verdade</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop sob medida, ricing, ambiente de dev minimalista</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Hyprland, dotfiles versionados no Git, AUR para tudo</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">É a tela preta que vira, em algumas horas de leitura, exatamente o desktop dos seus sonhos — e você fez cada pixel acontecer.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="endeavour" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">EndeavourOS</span><span class="d-tag">"Arch com as rodinhas certas"</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman + AUR</span><span class="badge">quase-vanilla</span></div>
+    <p class="d-desc">O melhor meio-termo do mundo Arch. Te dá um <b>instalador gráfico amigável</b> e um sistema <b>quase idêntico ao Arch puro</b> — ou seja, você ganha a Arch Wiki e o AUR de presente, mas pula a parte chata da instalação manual. No instalador você escolhe entre vários DEs/WMs. A comunidade é acolhedora e o terminal continua sendo cidadão de primeira classe.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">À sua escolha no instalador: KDE, GNOME, Xfce, i3, Sway, Hyprland…</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer Arch sem o ritual de instalação</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Daily driver entusiasta, primeira experiência "Arch-like"</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">AUR, ricing, quem vai eventualmente migrar pro Arch puro</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">A ponte ideal: você tem 95% da experiência Arch hoje, e amanhã já sabe o suficiente pra instalar o Arch "na unha" se quiser.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="manjaro" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Manjaro</span><span class="d-tag">Arch "domesticado"</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling (atrasado)</span><span class="badge">pacman + AUR</span><span class="badge">pronto pra uso</span></div>
+    <p class="d-desc">Pega o Arch e adiciona <b>conveniências</b>: instalador gráfico, detecção automática de hardware/drivers e edições prontas com KDE, GNOME ou Xfce. A diferença-chave é que tem <b>repositórios próprios</b> que <span class="hl">seguram os pacotes por ~2 semanas</span> para testá-los antes — mais estável, mas pode causar conflito ao misturar com o AUR (que não espera). Já teve tropeços históricos (certificados expirados), então divide opiniões.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Edições oficiais: KDE Plasma, GNOME, Xfce</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer "sabor Arch" pronto, com GUI pra tudo</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop diário, transição confortável pro mundo Arch</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Detecção de GPU automática, usuário que não quer terminal</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Funciona muito bem out-of-the-box; o cuidado é com o AUR — use com parcimônia para não quebrar pelo descompasso de versões.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="cachyos" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">CachyOS</span><span class="d-tag">Arch turbinado pra performance</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman + AUR</span><span class="badge">velocidade</span></div>
+    <p class="d-desc">A obsessão aqui é <b>desempenho</b>. Recompila os pacotes otimizados para CPUs modernas (<span class="hl">x86-64-v3/v4</span>) e usa um kernel próprio com <b>schedulers avançados</b> (BORE, sched-ext) para responsividade e jogos. Mantém a base Arch — então AUR, Wiki e rolling continuam — mas com instalador gráfico e opção de vários DEs/WMs já na instalação.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Vários no instalador (KDE, GNOME, Hyprland…)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Gamer e entusiasta que quer cada FPS e ms a mais</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Gaming, workstation potente, daily driver rápido</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">CPUs/GPUs novas, jogos via Steam/Proton, builds AM5</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Quem tem máquina parruda e quer extrair o máximo dela sem abrir mão do ecossistema Arch.</span></div>
+      <div class="frow wide"><span class="k">pra quem</span><span class="v">Ryzen 7000/9000 + RTX 50xx + DDR5 é <b>literalmente o público-alvo</b> do CachyOS. Pacotes compilados pra Zen moderno (x86-64-v3/v4) e scheduler afinado pra jogos — daily driver nessa build é quase trapaça.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="garuda" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Garuda Linux</span><span class="d-tag">Arch "vitrine de gamer"</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman + AUR</span><span class="badge">visual + gaming</span></div>
+    <p class="d-desc">É o Arch que entra na sala fazendo barulho: visual <b>exuberante</b> (o tema Dragonized do KDE é marcante), tweaks de performance, <b>zram</b> e — talvez o mais importante — <span class="hl">Btrfs com snapshots automáticos</span>: se um update quebrar, você volta no tempo em segundos. Vem com utilitários gráficos (Garuda Assistant) que centralizam manutenção. Lindo, mas mais "pesado" que outros Arch.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Dragonized (carro-chefe), também GNOME, Sway, etc.</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Gamer que quer impacto visual sem montar do zero</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Gaming, desktop "showoff", quem teme quebrar o sistema</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Snapshots Btrfs, Steam/Lutris, hardware potente</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">A rede de segurança dos snapshots dá a coragem de usar rolling release sem medo: deu ruim no update? Reverte e segue o jogo.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="artix" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Artix Linux</span><span class="d-tag">Arch, mas sem systemd</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman</span><span class="badge">init-freedom</span></div>
+    <p class="d-desc">Para quem tem uma objeção filosófica (ou técnica) ao systemd. Pega tudo de bom do Arch e troca o init por alternativas: <b>OpenRC, runit, s6 ou dinit</b>. O resultado é um sistema mais simples e enxuto sob o capô, do gosto de quem prefere a abordagem "faça uma coisa bem feita" do UNIX clássico.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Sua escolha (mesma flexibilidade do Arch)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer Arch sem systemd, por princípio ou curiosidade</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Sistemas enxutos, estudo de init alternativo</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Minimalismo, entender o boot a fundo</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Distro de nicho com propósito claro: se você não tem opinião sobre init, provavelmente não precisa dela — e tudo bem.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="omarchy" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Omarchy</span><span class="d-tag">DHH · Arch + Hyprland "de fábrica"</span></div>
+    <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman</span><span class="badge">opinativa</span></div>
+    <p class="d-desc">Criada por <b>DHH</b> (pai do Ruby on Rails), é uma configuração <b>extremamente opinativa</b> de Arch com <span class="hl">Hyprland</span> pronto e lindo logo de cara. Resolve a dor real do Hyprland — a tela preta intimidadora do zero — entregando teclado-centrado, criptografia LUKS por padrão e um kit de ferramentas de dev (Neovim, terminal, etc.) já afinado. Em pouco mais de um ano virou distro de verdade, com instalador ISO próprio.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Hyprland (compositor Wayland), pré-configurado</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Devs que querem Hyprland sem semanas de config</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Ambiente de programação keyboard-first, foco e estética</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Workflow de terminal, Neovim, fluxo de desenvolvimento web</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Se você já tem dotfiles Hyprland próprios, o Omarchy é menos "destino" e mais <b>fonte de ideias</b> — vale espiar as escolhas do DHH pra inspirar a sua config. Se não tem, é a entrada mais suave no mundo Hyprland.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ FEDORA / SUSE ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>04</span> · linhagem fedora &amp; suse</div>
+    <h2 class="sec-title">A vanguarda equilibrada</h2>
+    <p class="sec-intro">O mundo <b>.rpm</b>. Tecnologia de ponta com responsabilidade: novidades chegam cedo, mas testadas. É de onde saem ideias que depois o resto do Linux adota — e o berço das distros <b>atômicas/imutáveis</b>, um dos movimentos mais quentes do momento.</p>
+  </div>
+
+  <article id="fedora" class="distro" style="--c:var(--fam-fedora)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Fedora</span><span class="d-tag">patrocinada pela Red Hat · vitrine de futuro</span></div>
+    <div class="badges"><span class="badge fam">família · raiz</span><span class="badge fixo">~6 meses</span><span class="badge">dnf · .rpm</span><span class="badge">vanguarda</span></div>
+    <p class="d-desc">O equilíbrio perfeito entre <b>moderno e estável</b>. É onde tecnologias novas (Wayland, PipeWire, systemd) estreiam antes de chegarem nas outras — sem o risco do rolling release puro, porque tudo passa por testes. Entrega <b>GNOME puro</b>, do jeito que os desenvolvedores imaginaram. Tem segurança forte (SELinux) e é o playground oficial da Red Hat. Excelente para desenvolvimento.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME (Workstation); Spins com KDE, Xfce, Sway, i3…</span></div>
+      <div class="frow"><span class="k">spins / variantes</span><span class="v">Spins: KDE, Xfce, Cinnamon, MATE, LXQt, Budgie, <b>Sway, i3, Hyprland</b>. Editions: <b>Silverblue/Kinoite</b> (atômicas), Server, IoT, CoreOS</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Devs, profissionais, quem quer "novo mas confiável"</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Estação de desenvolvimento, daily driver moderno</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Containers/Podman, GNOME puro, ecossistema Red Hat. Upstream do <b>RHEL</b> (corporativo) → CentOS Stream, Rocky Linux, AlmaLinux</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Um dev que precisa de software fresco, containers, e não quer babysittar o sistema. Pega o que há de mais novo no Linux sem virar campo minado.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+ / intermediário</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="nobara" class="distro" style="--c:var(--fam-fedora)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Nobara</span><span class="d-tag">Fedora "destravada" pra jogo e criação</span></div>
+    <div class="badges"><span class="badge fam">base · Fedora</span><span class="badge fixo">~6 meses</span><span class="badge">dnf · .rpm</span><span class="badge">gaming + mídia</span></div>
+    <p class="d-desc">Mantida pelo <b>GloriousEggroll</b> (o nome por trás do Proton-GE), é o Fedora com <b>tudo pré-resolvido</b> que normalmente daria trabalho: codecs proprietários, drivers, patches de kernel para jogos, otimizações de OBS e ferramentas gráficas extras. A ideia é instalar e <b>já estar pronto pra jogar e criar conteúdo</b>, sem caçar pacote.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME ou KDE (edições oficiais)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Gamer e criador de conteúdo que gosta da base Fedora</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Jogos via Steam/Proton, streaming, edição de vídeo</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Proton-GE, OBS, GPUs NVIDIA/AMD, Lutris</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Gamer ou streamer que gosta da base Fedora e quer a parte chata (codecs, drivers, patches de kernel) já mastigada de fábrica.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="bazzite" class="distro" style="--c:var(--fam-fedora)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Bazzite</span><span class="d-tag">Fedora atômica · "console em forma de PC"</span></div>
+    <div class="badges"><span class="badge fam">base · Fedora Atomic</span><span class="badge atomic">imutável / atômica</span><span class="badge">gaming</span><span class="badge">uBlue</span></div>
+    <p class="d-desc">Aqui entra o conceito mais novo: a distro <span class="hl">imutável/atômica</span>. O sistema-base é <b>somente-leitura e atualiza como um bloco único</b> (que você pode reverter inteiro), enquanto seus apps ficam isolados via Flatpak/containers. Resultado: <b>praticamente impossível de quebrar</b>. A Bazzite foca em jogos e suporta handhelds (estilo Steam Deck, ROG Ally) com modo "console" na TV.</p>
+    <div class="callout green">
+      <span class="tag">por que "imutável" importa</span>
+      Numa distro tradicional, um update ruim pode danificar o sistema. Na atômica, ou o update aplica <b>inteiro e perfeito</b>, ou <b>não aplica</b> — e dá pra voltar ao estado anterior no boot. É o futuro do "Linux que simplesmente não dá problema" para usuário final.
+    </div>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Plasma ou GNOME; modo Steam Gamepad UI em handhelds</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Gamer, dono de handheld, quem quer "zero manutenção"</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">PC de jogos, HTPC na sala, console portátil</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Steam/Proton, Flatpak, Distrobox (para apps de dev)</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">PC de jogos ou handheld que liga e funciona como console — "instale, jogue e esqueça que é Linux". Detalhe: o fluxo de dev fica via containers (Distrobox), diferente do modelo tradicional.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">iniciante+ (modelo novo)</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="opensuse" class="distro" style="--c:var(--fam-suse)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">openSUSE</span><span class="d-tag">a europeia robusta · "duas distros em uma"</span></div>
+    <div class="badges"><span class="badge fam">família · SUSE</span><span class="badge fixo">Leap</span><span class="badge rolling">Tumbleweed</span><span class="badge">zypper · .rpm</span></div>
+    <p class="d-desc">Subvalorizada, mas excelente. Oferece dois sabores: <span class="hl">Leap</span> (estável, lançamento pontual, perfeito pra servidor) e <span class="hl">Tumbleweed</span> (rolling, mas <b>testado automaticamente pelo openQA</b> — talvez o rolling mais seguro que existe). O grande diferencial é o <b>YaST</b>, um painel de controle gráfico poderosíssimo que configura quase tudo, e o <b>Btrfs com snapper</b> para reverter updates.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Plasma ou GNOME (escolha na instalação)</span></div>
+      <div class="frow"><span class="k">variantes</span><span class="v">Leap, Tumbleweed; Aeon/Kalpa (atômicas)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Admin, dev, quem quer GUI poderosa de administração</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Servidor, workstation profissional, desktop estável</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">YaST, snapshots Btrfs, ambientes corporativos</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Tumbleweed entrega software fresquíssimo com uma rede de segurança que pouca distro rolling tem — ótimo equilíbrio para quem gosta de novidade sem sustos.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ SEGURANÇA ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>05</span> · ferramentas especializadas</div>
+    <h2 class="sec-title">Segurança &amp; privacidade</h2>
+    <p class="sec-intro">Estas <b>não são</b> para o dia a dia. São ferramentas de propósito específico — usá-las como sistema principal é como usar uma furadeira de bancada pra pendurar um quadro.</p>
+  </div>
+
+  <article id="kali" class="distro" style="--c:var(--fam-sec)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Kali Linux</span><span class="d-tag">Offensive Security · a caixa de ferramentas do pentester</span></div>
+    <div class="badges"><span class="badge fam">base · Debian</span><span class="badge">rolling</span><span class="badge">apt</span><span class="badge">segurança ofensiva</span></div>
+    <p class="d-desc">Vem com <b>centenas de ferramentas de teste de invasão</b> pré-instaladas (Metasploit, Wireshark, Nmap, Burp…). É feita para profissionais e estudantes de <b>segurança</b> auditarem sistemas. Importante: <b>não foi pensada como sistema principal</b> — roda muita coisa como root e tem trade-offs que não fazem sentido no uso comum. O ideal é usá-la em live USB ou máquina virtual.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Xfce padrão (também GNOME, KDE)</span></div>
+      <div class="frow"><span class="k">variantes</span><span class="v">Kali NetHunter (Android), versões em nuvem e ARM</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Pentester, analista de segurança, estudante de CTF</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Testes de invasão autorizados, forense, laboratório</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">VMs, live USB, ambientes de estudo de segurança</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Você sobe num pendrive ou VM, faz a auditoria, desliga. Não instale como SO do dia a dia.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado (de nicho)</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="tails" class="distro" style="--c:var(--fam-sec)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Tails</span><span class="d-tag">"The Amnesic Incognito Live System"</span></div>
+    <div class="badges"><span class="badge fam">base · Debian</span><span class="badge">live / USB</span><span class="badge">Tor</span><span class="badge">anonimato</span></div>
+    <p class="d-desc">O extremo da privacidade. Roda <b>inteiramente de um pendrive</b>, força <b>todo o tráfego pela rede Tor</b> e — o ponto central — é <span class="hl">amnésico</span>: ao desligar, <b>não deixa rastro nenhum</b> no computador. Usada por jornalistas, ativistas e quem precisa de anonimato real. Há um armazenamento persistente opcional e criptografado, se você quiser guardar arquivos.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME (enxuto, pré-configurado)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Jornalistas, ativistas, quem enfrenta vigilância. Famosa por ser a distro recomendada (e usada) por Edward Snowden.</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Comunicação anônima, contornar censura, navegação sem rastro</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Tor Browser, pendrive descartável, PCs emprestados</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Você pluga o USB em qualquer PC, faz o que precisa com segurança e remove — a máquina hospedeira não fica sabendo de nada.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">propósito específico</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ FILOSÓFICAS ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>06</span> · independentes &amp; filosóficas</div>
+    <h2 class="sec-title">As que pensam diferente</h2>
+    <p class="sec-intro">Não derivam de ninguém e existem para provar um <b>ponto de design</b>. Mexer com elas é menos sobre produtividade e mais sobre <b>entender computação a fundo</b> — cada uma reescreve uma regra que todo mundo dá como certa.</p>
+  </div>
+
+  <article id="gentoo" class="distro" style="--c:var(--fam-indep)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Gentoo</span><span class="d-tag">"você compila tudo"</span></div>
+    <div class="badges"><span class="badge fam">independente</span><span class="badge rolling">rolling</span><span class="badge">Portage · emerge</span><span class="badge">código-fonte</span></div>
+    <p class="d-desc">Em vez de baixar programas prontos, o Gentoo <b>compila cada pacote a partir do código-fonte</b>, na sua máquina, com as <span class="hl">USE flags</span> que você escolher — ativando só os recursos que quer. O resultado é um sistema absurdamente <b>enxuto e otimizado</b> pro seu hardware exato. O custo é tempo (compilar leva horas) e uma curva íngreme. É a faixa-preta do "eu controlo tudo".</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Qualquer um — você compila o que quiser</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer dominar Linux no osso, otimizar ao extremo</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Aprendizado profundo, sistemas sob medida, hardware específico</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">CPUs potentes (pra compilar rápido), curiosidade técnica</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Depois de instalar Gentoo, qualquer outra distro parece mágica de tão fácil — você sai sabendo o que cada peça faz. Alternativas que trazem parte dos benefícios sem o sofrimento total: <b>Funtoo</b> (variante mais acessível) e o <b>CachyOS</b> (otimizações similares via binários pré-compilados).</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span class="lbl">expert</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="nixos" class="distro" style="--c:var(--fam-indep)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">NixOS</span><span class="d-tag">o sistema declarativo e reproduzível</span></div>
+    <div class="badges"><span class="badge fam">independente</span><span class="badge rolling">rolling/canais</span><span class="badge">Nix</span><span class="badge">declarativa</span></div>
+    <p class="d-desc">A ideia mais revolucionária da lista. Em vez de instalar coisas <b>uma a uma</b>, você descreve o sistema <b>inteiro num arquivo de configuração</b> (<code>configuration.nix</code>): pacotes, serviços, usuários, tudo. O sistema então se constrói <b>exatamente</b> conforme a receita — <span class="hl">reproduzível e atômico</span>. Quebrou? Reverte pra geração anterior no boot. Apagou a config? Recria o PC idêntico em outra máquina. É infra-como-código aplicado ao SO.</p>
+    <div class="callout">
+      <span class="tag">por que é perfeito pra Data/DevOps</span>
+      Ambientes de desenvolvimento <b>perfeitamente reproduzíveis</b> e versionáveis no Git ressoam com a lógica de pipeline e governança de dados: o sistema vira um artefato declarativo, não um acúmulo de "fui instalando coisas". A mentalidade de dotfiles versionados levada ao extremo.
+    </div>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Qualquer um, declarado na config</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Devs, DevOps, quem valoriza reprodutibilidade</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Ambientes de dev versionados, servidores idempotentes, fleets</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Git, <b>Home Manager</b> (dotfiles declarativos), flakes, mentalidade IaC. Pacotes vivem em <code>/nix/store/</code> com hashes únicos — 3 versões de Python coexistem sem conflito.</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Curva de aprendizado real (a linguagem Nix é diferentona), mas o "aha!" de reconstruir sua máquina inteira a partir de um arquivo é transformador.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="slackware" class="distro" style="--c:var(--fam-indep)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Slackware</span><span class="d-tag">desde 1993 · a distro viva mais antiga</span></div>
+    <div class="badges"><span class="badge fam">independente</span><span class="badge fixo">pontual (raro)</span><span class="badge">pkgtools</span><span class="badge">UNIX clássico</span></div>
+    <p class="d-desc">A matriarca. Filosofia de <b>simplicidade radical no estilo UNIX</b>: nada de mágica por baixo dos panos. Famosa por <span class="hl">não resolver dependências automaticamente</span> — você sabe exatamente o que está instalando porque faz na mão. Init estilo BSD. É menos sobre "usar no dia a dia" e mais sobre tradição, pureza e entender como as coisas funcionavam (e ainda funcionam) na base.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">KDE, Xfce e outros disponíveis; configuração manual</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Veteranos, puristas UNIX, historiadores do Linux</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Aprendizado clássico, servidores simples, nostalgia produtiva</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Quem quer transparência total e zero abstração</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Resistiu a mais de 30 anos de modas justamente por não correr atrás de nenhuma. Tem seu charme atemporal. Muitos veteranos dizem: <b>"se você consegue manter um Slackware, sabe Linux de verdade"</b>.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ ALÉM DO LINUX ============ -->
+<section class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>07</span> · nas fronteiras</div>
+    <h2 class="sec-title">Onde o mapa se expande</h2>
+    <p class="sec-intro">Três casos que <b>esticam a definição</b> do que estamos falando — e mostram o quão longe esse mundo vai.</p>
+  </div>
+
+  <article id="freebsd" class="distro" style="--c:var(--fam-beyond)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">FreeBSD</span><span class="d-tag">o primo que não é Linux</span></div>
+    <div class="badges"><span class="badge fam">UNIX / BSD</span><span class="badge">pkg · ports</span><span class="badge">ZFS · Jails</span><span class="badge">não é Linux!</span></div>
+    <p class="d-desc">O detalhe-bomba: <b>FreeBSD não usa o kernel Linux</b>. É um descendente direto do UNIX original (linhagem BSD de Berkeley), um sistema operacional <b>completo e coeso</b> — kernel e ferramentas-base desenvolvidos juntos, não montados de pedaços. Brilha em <b>servidores, rede e armazenamento</b>: o <span class="hl">ZFS</span> (sistema de arquivos robusto) e as <b>Jails</b> (containers antes de containers serem moda) são referências. Licença BSD, mais permissiva que a do Linux.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Instalável (KDE, GNOME…), mas o foco é servidor</span></div>
+      <div class="frow"><span class="k">derivados</span><span class="v">pfSense/OPNsense (firewall), TrueNAS (storage), GhostBSD (desktop)</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Admins de rede/servidor, entusiastas de UNIX</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Servidores, NAS, firewalls, appliances de rede</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">ZFS, alta confiabilidade, infraestrutura de rede. Curiosidade: <b>macOS</b> tem userland parcialmente vinda do FreeBSD; <b>PlayStation 4 e 5</b> rodam um derivado dele.</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Aquele NAS da sua casa (TrueNAS) ou o firewall da empresa (pfSense) provavelmente é FreeBSD por baixo — silencioso e sólido.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário+</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="android-pi" class="distro" style="--c:var(--fam-beyond)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Android &amp; Raspberry Pi</span><span class="d-tag">Linux que você nem percebe que está usando</span></div>
+    <div class="badges"><span class="badge fam">kernel Linux</span><span class="badge">mobile · SBC</span><span class="badge">ARM</span><span class="badge">onipresente</span></div>
+    <p class="d-desc">Plot twist: o Linux mais usado do planeta <b>cabe no seu bolso</b>. O <span class="hl">Android</span> roda sobre o kernel Linux — só que com uma camada de software totalmente própria do Google por cima: <b>bionic</b> (libc do Google), <b>toybox</b> (utilitários compactos) e runtime <b>ART</b> em vez do ambiente GNU tradicional. Por isso, "Android é Linux" é tecnicamente correto mas culturalmente esquisito — o kernel é o mesmo, a experiência não. ROMs como LineageOS e GrapheneOS mostram o lado "comunidade" dessa história.</p>
+    <p class="d-desc" style="margin-top:14px">Existe também o <b>"Linux mobile de verdade"</b>: projetos como <b>postmarketOS</b>, <b>Mobian</b> e <b>Ubuntu Touch</b> rodam um desktop Linux convencional em celulares (PinePhone, Librem 5). É nicho, mas crescendo.</p>
+    <p class="d-desc" style="margin-top:14px">Já o <span class="hl">Raspberry Pi</span> é <b>hardware</b> — um computador completo do tamanho de um cartão, baratíssimo. Ele roda o <b>Raspberry Pi OS</b> (Debian adaptado pra ARM) e abre a porta de entrada mais divertida pro mundo Linux/maker. Também roda Ubuntu Server, Fedora IoT, Arch Linux ARM, DietPi e OpenWrt. É onde gente aprende programação, monta servidores caseiros (Pi-hole, Home Assistant, Jellyfin), retro-games (RetroPie/Recalbox) e projetos de IoT — sem medo de "estragar o PC principal".</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">público</span><span class="v">Todo mundo (Android) · makers e curiosos (Pi)</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Celular; homelab, IoT, retro-gaming, aprendizado, robótica</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Docker em ARM, Home Assistant, Pi-hole, projetos de eletrônica</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Um Raspberry Pi barato vira um servidor 24/7 pra estudar Docker, redes, IoT e automação — laboratório perfeito e descartável pra quem está aprendendo infra ou engenharia de dados.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><span class="lbl">acessível e divertido</span></span></span></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ WINDOW MANAGERS ============ -->
+<section id="wm" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>08</span> · a camada visual, parte 1</div>
+    <h2 class="sec-title">Window Managers</h2>
+    <p class="sec-intro">Lembra que o WM só cuida das janelas? Quem larga o Desktop Environment pronto e monta tudo em volta de um WM entra no território do <b>ricing</b> — desktops totalmente sob medida, controlados por teclado. Primeiro, os três modelos de organização:</p>
+  </div>
+
+  <table class="cmp">
+    <tr><th>Modelo</th><th>Como funciona</th><th>Exemplos</th></tr>
+    <tr><td><b>Stacking</b> (empilhado)</td><td>Janelas flutuam e se sobrepõem, como no Windows/macOS. É o "normal".</td><td>O que todo DE faz por padrão</td></tr>
+    <tr><td><b>Tiling</b> (mosaico)</td><td>Janelas se dividem automaticamente, sem sobreposição, ocupando toda a tela. Tudo via teclado.</td><td>i3, Sway, Hyprland, bspwm</td></tr>
+    <tr><td><b>Scrollable</b> (rolável)</td><td>Janelas em colunas numa fita horizontal infinita por onde você "rola". Paradigma novo.</td><td>Niri</td></tr>
+  </table>
+
+  <div class="callout lav">
+    <span class="tag">X11 vs Wayland — em uma frase</span>
+    <b>X11</b> é o sistema gráfico antigo (estável, todo WM clássico roda nele); <b>Wayland</b> é o substituto moderno (mais seguro e fluido, com animações e telas de alta taxa de atualização). Um "compositor Wayland" é, na prática, um WM de nova geração. A indústria está migrando pra Wayland.
+  </div>
+
+  <div class="wmgrid" style="margin-top:24px">
+    <div class="wm">
+      <div class="top"><h4>Hyprland</h4><span class="pill way">Wayland</span></div>
+      <div class="cfg">tiling dinâmico · config: hyprland.conf</div>
+      <div class="wmviz"><span style="flex:2"></span><span style="flex:1"></span><span style="flex:1.4"></span></div>
+      <p>O <b>rei da estética</b>. Tiling dinâmico com animações suaves, cantos arredondados, blur e transparências — é a estrela do r/unixporn. Altamente configurável e o destino preferido de quem quer um desktop deslumbrante e produtivo. Distros que entregam Hyprland pré-configurado: Omarchy, CachyOS, EndeavourOS, Garuda.</p>
+      <p style="margin-top:10px;font-size:13px;color:var(--faint)">Nota: o líder do projeto (Vaxry) tem histórico de declarações controversas que afastaram alguns colaboradores. Tecnicamente, o projeto é excelente.</p>
+    </div>
+    <div class="wm">
+      <div class="top"><h4>Niri</h4><span class="pill way">Wayland</span></div>
+      <div class="cfg">scrollable tiling · escrito em Rust</div>
+      <div class="wmviz"><span style="flex:1"></span><span style="flex:1"></span><span style="flex:1;opacity:.5"></span><span style="flex:1;opacity:.25"></span></div>
+      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust, estável como daily driver, e com XWayland integrado via xwayland-satellite nas versões recentes. Ganhou tração rápido e é o queridinho de 2025/26.</p>
+    </div>
+    <div class="wm">
+      <div class="top"><h4>Sway</h4><span class="pill way">Wayland</span></div>
+      <div class="cfg">tiling manual · config compatível com i3</div>
+      <div class="wmviz"><span style="flex:1.3"></span><span style="flex:1"></span></div>
+      <p>O <b>i3 do mundo Wayland</b>. Usa praticamente a mesma configuração do i3, então quem vem de lá migra sem reaprender nada — só que ganhando os benefícios do Wayland. Estável, previsível e sem firulas. A escolha "adulta" e confiável.</p>
+    </div>
+    <div class="wm">
+      <div class="top"><h4>i3</h4><span class="pill x11">X11</span></div>
+      <div class="cfg">tiling manual · config em texto simples</div>
+      <div class="wmviz"><span style="flex:1"></span><span style="flex:1.5"></span></div>
+      <p>O <b>portão de entrada clássico</b> do tiling. Leve, rápido, estável e documentado até o último detalhe. Você controla onde cada janela vai. Roda em qualquer tranqueira. Se alguém pergunta "por onde começo no tiling?", a resposta costuma ser i3.</p>
+    </div>
+    <div class="wm">
+      <div class="top"><h4>bspwm</h4><span class="pill x11">X11</span></div>
+      <div class="cfg">binary space partitioning · controlado por scripts</div>
+      <div class="wmviz"><span style="flex:1"></span><span style="flex:1.2"></span><span style="flex:.8"></span></div>
+      <p>O <b>minimalista scriptável</b>. Não tem barra nem atalhos próprios — ele só gerencia janelas dividindo o espaço em dois, e <b>tudo</b> é controlado por comandos (<code>bspc</code>) e scripts seus (com o sxhkd pros atalhos). Liberdade quase absoluta, montagem 100% manual.</p>
+    </div>
+    <div class="wm">
+      <div class="top"><h4>AwesomeWM</h4><span class="pill x11">X11</span></div>
+      <div class="cfg">configurado em Lua · framework de WM</div>
+      <div class="wmviz"><span style="flex:1"></span><span style="flex:1"></span><span style="flex:1"></span></div>
+      <p>Mais que um WM, um <b>framework</b>: você o programa em <span style="color:var(--lav)">Lua</span>, criando widgets, barras e comportamentos do zero. Faz tiling e stacking. Para quem gosta de tratar o desktop como um projeto de software — e, de quebra, uma ótima desculpa pra aprender Lua.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">menções honrosas</span>
+    <b>dwm</b> (suckless — você "configura" editando o código C e recompilando), <b>Qtile</b> (config em Python), <b>Xmonad</b> (em Haskell) e <b>river</b> (Wayland minimalista). Cada um atrai uma linguagem/filosofia diferente.
+  </div>
+</section>
+
+<!-- ============ QUICKSHELL ============ -->
+<section id="quickshell" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>09</span> · a camada visual, parte 2</div>
+    <h2 class="sec-title">Shells de desktop · o universo Quickshell</h2>
+    <p class="sec-intro">Atenção à palavra: aqui <b>"shell" não é o terminal</b> (bash/zsh). É a <b>camada visual</b> que vive em cima do compositor — barras, launcher, central de notificações, widgets, tela de bloqueio. O WM organiza janelas; o "shell de desktop" é a interface ao redor delas.</p>
+  </div>
+
+  <h3 class="subhead"><span class="mk">$</span> O que é Quickshell</h3>
+  <p class="d-desc" style="max-width:74ch">Um <b>framework</b> (baseado em Qt/QML, por <b>outfoxxed</b>) para <b>construir o seu próprio shell de desktop</b> em Wayland. Antes dele, a galera usava <b>Waybar</b> (barra) + <b>rofi/wofi</b> (launcher) + <b>dunst/mako</b> (notificações) — funcionava, mas era uma colcha de retalhos. O Quickshell permite construir <b>uma shell coesa</b>, do zero, com QML: animações suaves, layouts dinâmicos, IPC direto pro compositor. Não é um WM: roda <b>por cima</b> de um compositor como Hyprland ou Niri.</p>
+
+  <div class="wmgrid" style="margin-top:26px">
+    <div class="wm" style="border-color:color-mix(in srgb,var(--lav) 25%,var(--border))">
+      <div class="top"><h4>Caelestia</h4><span class="pill way">Quickshell</span></div>
+      <div class="cfg">opinativo · Material You · foco Hyprland</div>
+      <p>Um conjunto de dotfiles + shell <b>polidíssimo</b> com a linguagem visual <b>Material You</b> (cores geradas dinamicamente a partir do seu wallpaper). Tem painel de sistema, métricas de CPU/GPU/RAM, controle de mídia e mais — tudo aparecendo elegantemente ao passar o mouse. Detalhe insano: tem um <b>beat detector</b> em C++ que pode animar elementos <b>no ritmo da música</b>. É um dos setups mais "uau" da cena atual.</p>
+    </div>
+    <div class="wm" style="border-color:color-mix(in srgb,var(--lav) 25%,var(--border))">
+      <div class="top"><h4>Noctalia</h4><span class="pill way">Quickshell</span></div>
+      <div class="cfg">minimalista · estética lavanda · Niri + Hyprland</div>
+      <p>A filosofia oposta: <b>minimalista e que "sai do seu caminho"</b>. Estética lavanda suave, leve e altamente customizável, com <b>suporte nativo a Niri</b> e Hyprland (além de Sway, labwc e outros). Tem sistema de plugins e geração automática de tema pelo wallpaper. Ideal pra quem ama o paradigma scrollable do Niri.</p>
+    </div>
+  </div>
+
+  <div class="callout lav">
+    <span class="tag">de onde isso tudo veio</span>
+    Boa parte dessa onda foi inspirada por dotfiles pioneiros como o <b>end-4 (illogical-impulse)</b>. Outras shells crescendo: <b>DMS (DankMaterialShell)</b> (Quickshell + Go, suporta Niri/Hyprland/Sway) e projetos como o <b>JaKooLit</b>. É um ecossistema jovem e fervilhante.<br><br>
+    Em uma frase: Quickshell é o <b>"motor"</b> do desktop moderno em WMs Wayland; Caelestia é a <b>"Mercedes"</b> desse motor; Noctalia é a <b>"Toyota Camry"</b> — sólida, silenciosa, faz tudo bem sem chamar atenção.
+  </div>
+</section>
+
+<!-- ============ QUIZ DE DECISÃO ============ -->
+<section id="quiz" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>10</span> · quiz interativo</div>
+    <h2 class="sec-title">Descubra sua distro</h2>
+    <p class="sec-intro">Cinco perguntas rápidas e o Atlas aponta a distro que mais combina com você — com uma segunda opção de reserva. Tudo roda no seu navegador; nada é enviado a lugar nenhum.</p>
+  </div>
+
+  <div class="quiz" id="quiz-app">
+    <!-- preenchido por js/quiz.js -->
+    <noscript><p class="d-desc">O quiz precisa de JavaScript. Role até <a class="inline" href="#guia">Qual distro escolher?</a> para a versão em texto.</p></noscript>
+  </div>
+</section>
+
+<!-- ============ GUIA DE DECISÃO ============ -->
+<section id="guia" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>10</span> · decisão</div>
+    <h2 class="sec-title">Qual distro escolher?</h2>
+    <p class="sec-intro">Com tantas opções, a escolha pode paralisar. Esse guia corta o ruído com <b>cinco perguntas</b> que te levam direto à resposta certa pro seu perfil. A regra de ouro: a melhor distro é a que <b>some do caminho</b> e te deixa fazer o que precisa.</p>
+  </div>
+
+  <div class="guide">
+    <div class="flow">
+      <div class="step"><span class="q">Vem do Windows e quer transição suave?</span><span class="a"><span class="pick">Linux Mint (Cinnamon)</span> — menu, barra embaixo, tudo no lugar esperado. A recomendação nº1 do mundo pra iniciante, e por bons motivos.</span></div>
+      <div class="step"><span class="q">Visual importa muito — quer cara de Windows 11 ou macOS?</span><span class="a"><span class="pick">Zorin OS</span> — um clique troca o layout inteiro. Ideal pra empresa migrando funcionários ou pra quem se recusa a abrir mão da estética familiar.</span></div>
+      <div class="step"><span class="q">PC antigo ou com pouca RAM (&lt;4 GB)?</span><span class="a"><span class="pick">Linux Mint Xfce</span> ou <span class="pick">MX Linux</span> — leves, mas ainda confortáveis. Se for <em>muito</em> antigo (&lt;1 GB), Puppy Linux ou antiX.</span></div>
+      <div class="step"><span class="q">Quer jogar ou zero manutenção tipo console?</span><span class="a"><span class="pick">Bazzite</span> — atômica, praticamente impossível de quebrar, jogos funcionam de cara. "Instale e esqueça".</span></div>
+      <div class="step"><span class="q">Dev ou entusiasta que quer moderno + estável?</span><span class="a"><span class="pick">Fedora Workstation</span> — GNOME puro, tecnologias novas estreiam aqui, SELinux de fábrica.</span></div>
+      <div class="step"><span class="q">Quer aprender Linux de verdade e montar tudo do zero?</span><span class="a"><span class="pick">Arch Linux</span> ou <span class="pick">EndeavourOS</span> — rolling release, Arch Wiki como bíblia, e a satisfação de entender cada peça.</span></div>
+      <div class="step"><span class="q">Quer performance máxima pra gaming em hardware moderno?</span><span class="a"><span class="pick">CachyOS</span> — pacotes otimizados pra CPUs recentes, kernel com scheduler afinado. A arma secreta do gamer no Arch.</span></div>
+    </div>
+
+    <h3 class="subhead" style="margin-top:36px"><span class="mk">#</span> Pra evitar (a menos que saiba o que está fazendo)</h3>
+    <p class="d-desc" style="max-width:70ch">Distros de segurança (Kali, Tails) como sistema do dia a dia, porque não foram feitas pra isso. Window managers puros (Hyprland, i3, Niri) como primeira experiência Linux — o choque pode afastar em vez de atrair. Rolling releases sem rede de segurança (snapshots/Btrfs) se você não tem paciência pra investigar quando algo quebra.</p>
+
+    <h3 class="subhead" style="margin-top:36px"><span class="mk">#</span> Primeiros 30 dias: como fazer dar certo</h3>
+    <div class="callout green">
+      <span class="tag">setup de boas-vindas</span>
+      <b>1.</b> Ative o <b>Flatpak + Flathub</b> (no Mint já vem; no Fedora, um comando). Isso te dá acesso a quase todo app que existe.<br>
+      <b>2.</b> Instale seus apps via Flathub: Spotify, Discord, Steam, Telegram, Bitwarden, OBS, Bottles (pra rodar <code>.exe</code> quando precisar).<br>
+      <b>3.</b> Configure o <b>Timeshift</b> (Mint/Ubuntu) ou <b>snapshots Btrfs</b> (Fedora/Arch) pra poder reverter o sistema se algo der errado.<br>
+      <b>4.</b> Coloque um wallpaper bonito, aprenda os atalhos do gerenciador de arquivos, e pronto — o resto vem com o uso.
+    </div>
+
+    <div class="verdict">
+      <b>O insight de 2026:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="big">Fim do mapa — mas não da exploração.</div>
+  <p>Este documento é um <b>retrato de 2026</b>: o ecossistema Linux se move rápido (sobretudo a cena Wayland/Quickshell). Trate-o como dotfiles — um artefato vivo, pra revisar e versionar quando algo mudar.</p>
+  <p style="margin-top:18px;color:var(--faint)">// cores = famílias · dificuldade = 1–5 blocos<br>// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"<br>// próxima revisão sugerida: quando o COSMIC DE sair stable ou o Niri 1.0 chegar</p>
+  <p style="margin-top:14px"><b>Atlas Linux</b> é um projeto open-source. Contribuições, correções e traduções são bem-vindas.</p>
+</footer>
+
+</main>
+</div></div>
+
+<script src="js/nav.js" defer></script>
+<script src="js/collapse.js" defer></script>
+<script src="js/explorer.js" defer></script>
+<script src="js/quiz.js" defer></script>
+</body>
+</html>
