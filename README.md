@@ -1,6 +1,6 @@
 # 🐧 Atlas Linux
 
-> Um guia de campo honesto do ecossistema Linux em 2026 — organizado por **famílias**, das bases milenares aos compositores Wayland mais brilhantes do unixporn.
+> Um guia de campo honesto do ecossistema Linux, organizado por **famílias**, das bases milenares aos compositores Wayland mais geniais do 'r/unixporn'.
 
 Site estático, sem build e sem dependências. Abra o `index.html` ou acesse a versão publicada:
 
@@ -76,8 +76,7 @@ npx serve
 
 ## 🤝 Contribuindo
 
-O ecossistema Linux se move rápido (sobretudo a cena Wayland/Quickshell).
-Correções, novas distros e traduções são bem-vindas via issue ou pull request.
+O ecossistema Linux se move rápido, então correções, novas distros e traduções são bem-vindas via issue ou pull request.
 
 ## 📄 Licença
 
