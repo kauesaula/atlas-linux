@@ -52,20 +52,6 @@ adicionada por cima, sem alterar os tokens ou os componentes existentes.
 
 ---
 
-## 🚀 Rodando localmente
-
-Como é tudo estático, basta um servidor de arquivos qualquer (necessário para
-os `<script>` externos carregarem por HTTP em vez de `file://`):
-
-```bash
-# Python
-python3 -m http.server 8000
-# depois abra http://localhost:8000
-
-# ou Node
-npx serve
-```
-
 ## 🌐 Publicando no GitHub Pages
 
 1. Em **Settings → Pages**, defina **Source: GitHub Actions**.
