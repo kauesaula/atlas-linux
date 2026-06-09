@@ -22,7 +22,7 @@
           if (a) a.classList.add('active');
         }
       });
-    }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
     map.forEach((a, el) => spy.observe(el));
 
     // reveal on scroll

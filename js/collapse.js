@@ -17,11 +17,17 @@
     const head = card.querySelector(':scope > .d-head');
     if (!ficha || !head) return;
 
-    // tudo da ficha em diante recolhe junto (ficha + eventuais irmãos seguintes)
+    // tudo do callout (se houver) + ficha em diante recolhe junto
+    let startNode = ficha;
+    let prev = ficha.previousElementSibling;
+    while (prev && prev.classList.contains('callout')) {
+      startNode = prev;
+      prev = prev.previousElementSibling;
+    }
     const body = document.createElement('div');
     body.className = 'd-body';
-    ficha.parentNode.insertBefore(body, ficha);
-    let node = ficha;
+    startNode.parentNode.insertBefore(body, startNode);
+    let node = startNode;
     while (node) {
       const next = node.nextElementSibling;
       body.appendChild(node);
@@ -63,15 +69,5 @@
     entry.card.classList.contains('collapsed') ? expand(entry) : collapse(entry);
   }
 
-  // botão global da toolbar
-  const btnAll = document.getElementById('toggle-all');
-  if (btnAll) {
-    let allCollapsed = false;
-    btnAll.addEventListener('click', () => {
-      allCollapsed = !allCollapsed;
-      cards.forEach((e) => (allCollapsed ? collapse(e) : expand(e)));
-      btnAll.textContent = allCollapsed ? 'Expandir tudo' : 'Recolher tudo';
-      btnAll.setAttribute('aria-pressed', String(allCollapsed));
-    });
-  }
+
 })();
