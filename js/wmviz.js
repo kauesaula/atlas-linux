@@ -59,6 +59,7 @@
   }
 
   function render() {
+    if (!stage || !layer || !monitor || !explain || !countEl || !modeLbl) return;
     countEl.textContent = wins.length + (wins.length===1 ? ' janela' : ' janelas');
     stage.className = 'wmv-stage wmv-' + mode;
     modeLbl.textContent = mode==='i3' ? 'i3 / sway' : mode==='hypr' ? 'hyprland' : mode;

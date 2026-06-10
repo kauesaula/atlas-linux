@@ -677,37 +677,9 @@
   <div class="sec-head">
     <div class="sec-idx">// <span>08</span> · a camada visual, parte 1</div>
     <h2 class="sec-title">Window Managers</h2>
-    <p class="sec-intro">Lembra que o WM só cuida das janelas? Quem larga o Desktop Environment pronto e monta tudo em volta de um WM entra no território do <b>ricing</b>: desktops totalmente sob medida, controlados por teclado. Experimente abrir janelas nos quatro modos abaixo para ver a diferença na prática:</p>
+    <p class="sec-intro">Lembra que o WM só cuida das janelas? Quem larga o Desktop Environment pronto e monta tudo em volta de um WM entra no território do <b>ricing</b>: desktops totalmente sob medida, controlados por teclado. Os três modelos de organização:</p>
   </div>
 
-  <div id="wm-viz" class="wm-viz-panel">
-    <div class="wmv-modes">
-      <button class="wmv-mode active" data-mode="stacking">Stacking <span class="wmv-tag">(empilhado)</span></button>
-      <button class="wmv-mode" data-mode="i3">i3 / Sway <span class="wmv-tag">(tiling)</span></button>
-      <button class="wmv-mode" data-mode="hypr">Hyprland <span class="wmv-tag">(tiling + gaps)</span></button>
-      <button class="wmv-mode" data-mode="niri">Niri <span class="wmv-tag">(scrollable)</span></button>
-    </div>
-    <div class="wmv-monitor" id="wmv-monitor">
-      <div class="wmv-topbar">
-        <span class="wmv-ws" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
-        <span class="wmv-mode-label">stacking</span>
-        <span class="wmv-clock">09:41</span>
-      </div>
-      <div class="wmv-stage wmv-stacking">
-        <div class="wmv-layer"></div>
-      </div>
-      <div class="wmv-edgefade"></div>
-    </div>
-    <div class="wmv-controls">
-      <button class="wmv-btn wmv-btn-primary" data-add>+ abrir janela</button>
-      <button class="wmv-btn wmv-btn-danger" data-remove>− fechar janela</button>
-      <button class="wmv-btn" data-reset>reset</button>
-      <span class="wmv-count">0 janelas</span>
-    </div>
-    <div class="wmv-explain"></div>
-  </div>
-
-  <p class="sec-intro" style="margin-top:24px">Os três modelos de organização:</p>
   <table class="cmp">
     <tr><th>Modelo</th><th>Como funciona</th><th>Exemplos</th></tr>
     <tr><td><b>Stacking</b> (empilhado)</td><td>Janelas flutuam e se sobrepõem, como no Windows/macOS. É o "normal".</td><td>O que todo DE faz por padrão</td></tr>
@@ -763,6 +735,35 @@
     <span class="tag">menções honrosas</span>
     <b>dwm</b> (suckless: você "configura" editando o código C e recompilando), <b>Qtile</b> (config em Python), <b>Xmonad</b> (em Haskell) e <b>river</b> (Wayland minimalista). Cada um atrai uma linguagem/filosofia diferente.
   </div>
+
+  <p class="sec-intro" style="margin-top:24px">Experimente abrir janelas em cada modelo para sentir a diferença na prática:</p>
+
+  <div id="wm-viz" class="wm-viz-panel">
+    <div class="wmv-modes">
+      <button class="wmv-mode active" data-mode="stacking">Stacking <span class="wmv-tag">(empilhado)</span></button>
+      <button class="wmv-mode" data-mode="i3">i3 / Sway <span class="wmv-tag">(tiling)</span></button>
+      <button class="wmv-mode" data-mode="hypr">Hyprland <span class="wmv-tag">(tiling + gaps)</span></button>
+      <button class="wmv-mode" data-mode="niri">Niri <span class="wmv-tag">(scrollable)</span></button>
+    </div>
+    <div class="wmv-monitor" id="wmv-monitor">
+      <div class="wmv-topbar">
+        <span class="wmv-ws" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+        <span class="wmv-mode-label">stacking</span>
+        <span class="wmv-clock">09:41</span>
+      </div>
+      <div class="wmv-stage wmv-stacking">
+        <div class="wmv-layer"></div>
+      </div>
+      <div class="wmv-edgefade"></div>
+    </div>
+    <div class="wmv-controls">
+      <button class="wmv-btn wmv-btn-primary" data-add>+ abrir janela</button>
+      <button class="wmv-btn wmv-btn-danger" data-remove>− fechar janela</button>
+      <button class="wmv-btn" data-reset>reset</button>
+      <span class="wmv-count">0 janelas</span>
+    </div>
+    <div class="wmv-explain"></div>
+  </div>
 </section>
 
 <!-- ============ QUICKSHELL ============ -->
@@ -801,24 +802,10 @@
   </div>
 </section>
 
-<!-- ============ QUIZ DE DECISÃO ============ -->
-<section id="quiz" class="reveal">
-  <div class="sec-head">
-    <div class="sec-idx">// <span>10</span> · quiz interativo</div>
-    <h2 class="sec-title">Descubra sua distro</h2>
-    <p class="sec-intro">Cinco perguntas rápidas e o Atlas <b>sugere</b> um ponto de partida que costuma combinar com o seu perfil, com uma segunda opção pra comparar. Pense nisso como uma bússola, não um trilho: a decisão é sua. Tudo roda no seu navegador, nada é enviado a lugar nenhum.</p>
-  </div>
-
-  <div class="quiz" id="quiz-app">
-    <!-- preenchido por js/quiz.js -->
-    <noscript><p class="d-desc">O quiz precisa de JavaScript. Role até <a class="inline" href="#guia">Qual distro escolher?</a> para a versão em texto.</p></noscript>
-  </div>
-</section>
-
 <!-- ============ GUIA DE DECISÃO ============ -->
 <section id="guia" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>11</span> · guia de decisão</div>
+    <div class="sec-idx">// <span>10</span> · guia de decisão</div>
     <h2 class="sec-title">Qual distro escolher?</h2>
     <p class="sec-intro">Com tantas opções, a escolha pode paralisar. Este guia corta o ruído e te ajuda a <b>pensar sobre o que combina com o seu perfil</b>. A regra de ouro: a melhor distro é a que some do caminho e te deixa fazer o que precisa.</p>
   </div>
@@ -855,6 +842,20 @@
     <div class="verdict">
       <b>O insight de 2026:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
     </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ DE DECISÃO ============ -->
+<section id="quiz" class="reveal">
+  <div class="sec-head">
+    <div class="sec-idx">// <span>11</span> · quiz interativo</div>
+    <h2 class="sec-title">Descubra sua distro</h2>
+    <p class="sec-intro">Cinco perguntas rápidas e o Atlas <b>sugere</b> um ponto de partida que costuma combinar com o seu perfil, com uma segunda opção pra comparar. Pense nisso como uma bússola, não um trilho: a decisão é sua. Tudo roda no seu navegador, nada é enviado a lugar nenhum.</p>
+  </div>
+
+  <div class="quiz" id="quiz-app">
+    <!-- preenchido por js/quiz.js -->
+    <noscript><p class="d-desc">O quiz precisa de JavaScript. Role até <a class="inline" href="#guia">Qual distro escolher?</a> para a versão em texto.</p></noscript>
   </div>
 </section>
 
