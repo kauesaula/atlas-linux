@@ -738,32 +738,10 @@
 
   <p class="sec-intro" style="margin-top:24px">Experimente abrir janelas em cada modelo para sentir a diferença na prática:</p>
 
-  <div id="wm-viz" class="wm-viz-panel">
-    <div class="wmv-modes">
-      <button class="wmv-mode active" data-mode="stacking">Stacking <span class="wmv-tag">(empilhado)</span></button>
-      <button class="wmv-mode" data-mode="i3">i3 / Sway <span class="wmv-tag">(tiling)</span></button>
-      <button class="wmv-mode" data-mode="hypr">Hyprland <span class="wmv-tag">(tiling + gaps)</span></button>
-      <button class="wmv-mode" data-mode="niri">Niri <span class="wmv-tag">(scrollable)</span></button>
-    </div>
-    <div class="wmv-monitor" id="wmv-monitor">
-      <div class="wmv-topbar">
-        <span class="wmv-ws" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
-        <span class="wmv-mode-label">stacking</span>
-        <span class="wmv-clock">09:41</span>
-      </div>
-      <div class="wmv-stage wmv-stacking">
-        <div class="wmv-layer"></div>
-      </div>
-      <div class="wmv-edgefade"></div>
-    </div>
-    <div class="wmv-controls">
-      <button class="wmv-btn wmv-btn-primary" data-add>+ abrir janela</button>
-      <button class="wmv-btn wmv-btn-danger" data-remove>− fechar janela</button>
-      <button class="wmv-btn" data-reset>reset</button>
-      <span class="wmv-count">0 janelas</span>
-    </div>
-    <div class="wmv-explain"></div>
-  </div>
+  <iframe src="wm-viz.html"
+          title="Visualizador interativo de Window Managers"
+          style="width:100%;height:720px;border:1px solid var(--border);border-radius:18px;background:var(--surface);display:block;margin-top:12px;"
+          loading="lazy"></iframe>
 </section>
 
 <!-- ============ QUICKSHELL ============ -->
@@ -872,6 +850,5 @@
 <script src="js/nav.js" defer></script>
 <script src="js/collapse.js" defer></script>
 <script src="js/quiz.js" defer></script>
-<script src="js/wm-viz.js" defer></script>
 </body>
 </html>

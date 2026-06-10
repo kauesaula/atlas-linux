@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas · PoC Visualizador de Window Managers</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0c13;--surface:#14161f;--surface2:#191c28;--border:#272b3d;--border2:#343a52;
+    --text:#e7e8f2;--muted:#a0a4c4;--faint:#6e7298;
+    --amber:#f2b35c;--lav:#c6a8f6;--green:#92e3a0;--teal:#6dd3da;--pink:#f291bb;--blue:#8ab4f8;
+    --mono:"JetBrains Mono",monospace;--sans:"IBM Plex Sans",system-ui,sans-serif;--disp:"Bricolage Grotesque",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;
+    padding:clamp(16px,4vw,48px);
+    background-image:radial-gradient(800px 500px at 15% -5%,rgba(198,168,246,.10),transparent 60%),radial-gradient(700px 600px at 95% 5%,rgba(109,211,218,.07),transparent 55%);}
+  .wrap{max-width:920px;margin:0 auto}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--lav);margin-bottom:10px}
+  h1{font-family:var(--disp);font-weight:800;font-size:clamp(28px,5vw,44px);letter-spacing:-.02em;line-height:1.02;margin-bottom:12px}
+  .sub{color:var(--muted);max-width:64ch;margin-bottom:28px}
+  .sub b{color:var(--text)}
+
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(16px,3vw,26px)}
+
+  .modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .mode{font-family:var(--mono);font-size:13px;padding:9px 15px;border-radius:10px;border:1px solid var(--border2);
+    background:var(--surface2);color:var(--muted);cursor:pointer;transition:.18s;display:flex;align-items:center;gap:8px}
+  .mode:hover{color:var(--text);border-color:var(--lav)}
+  .mode.active{color:#0b0c13;background:var(--lav);border-color:var(--lav);font-weight:700}
+  .mode .tag{font-size:10px;opacity:.7}
+  .mode.active .tag{opacity:.8}
+
+  /* MONITOR */
+  .monitor{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;
+    border:1px solid var(--border2);
+    background:linear-gradient(135deg,#10131d,#161a28 60%,#1a1426);
+    box-shadow:inset 0 0 80px rgba(0,0,0,.4)}
+  .topbar-ui{position:absolute;top:0;left:0;right:0;height:26px;z-index:200;
+    background:rgba(11,12,19,.55);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.05);
+    display:flex;align-items:center;gap:10px;padding:0 12px;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+  .topbar-ui .ws{display:flex;gap:5px}
+  .topbar-ui .ws i{width:7px;height:7px;border-radius:50%;background:var(--border2);display:block}
+  .topbar-ui .ws i.on{background:var(--lav)}
+  .topbar-ui .clock{margin-left:auto}
+
+  .stage{position:absolute;top:26px;left:0;right:0;bottom:0;overflow:hidden}
+  .layer{position:absolute;inset:0;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+
+  .win{position:absolute;border-radius:6px;overflow:hidden;background:var(--surface);
+    border:1px solid var(--border2);
+    transition:left .5s cubic-bezier(.22,.61,.36,1),top .5s cubic-bezier(.22,.61,.36,1),
+               width .5s cubic-bezier(.22,.61,.36,1),height .5s cubic-bezier(.22,.61,.36,1),
+               border-radius .35s,box-shadow .35s,opacity .3s,transform .3s;
+    display:flex;flex-direction:column}
+  .win.focus{border-color:var(--wc);box-shadow:0 0 0 1px var(--wc)}
+  .win .bar{height:20px;display:flex;align-items:center;gap:5px;padding:0 8px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
+  .win .bar i{width:7px;height:7px;border-radius:50%;background:var(--border2)}
+  .win .bar i:first-child{background:var(--wc)}
+  .win .label{font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .win .body{flex:1;background:
+    repeating-linear-gradient(0deg,transparent,transparent 7px,rgba(255,255,255,.025) 7px,rgba(255,255,255,.025) 8px);
+    position:relative}
+  .win .body::before{content:"";position:absolute;top:8px;left:8px;width:42%;height:6px;border-radius:3px;background:var(--wc);opacity:.55}
+
+  /* modo hyprland: cantos + glow */
+  .stage.hypr .win{border-radius:12px}
+  .stage.hypr .win.focus{box-shadow:0 0 0 1px var(--wc),0 8px 30px color-mix(in srgb,var(--wc) 35%,transparent)}
+  /* modo niri: borda lateral indicando coluna */
+  .stage.niri .win{border-radius:10px}
+  .stage.niri .scrollhint{position:absolute;right:8px;bottom:8px;z-index:150;font-family:var(--mono);font-size:10px;
+    color:var(--faint);background:rgba(11,12,19,.7);padding:4px 9px;border-radius:20px;border:1px solid var(--border2)}
+  .edgefade{position:absolute;top:26px;right:0;bottom:0;width:46px;z-index:140;pointer-events:none;opacity:0;transition:.3s;
+    background:linear-gradient(90deg,transparent,rgba(11,12,19,.6))}
+  .monitor.overflow .edgefade{opacity:1}
+
+  .controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}
+  .btn{font-family:var(--mono);font-size:13px;padding:9px 16px;border-radius:10px;border:1px solid var(--border2);
+    background:var(--surface2);color:var(--text);cursor:pointer;transition:.16s}
+  .btn:hover{border-color:var(--lav);background:var(--surface)}
+  .btn.primary{background:var(--green);color:#0b0c13;border-color:var(--green);font-weight:700}
+  .btn.danger:hover{border-color:var(--pink)}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .count{font-family:var(--mono);font-size:12px;color:var(--faint);margin-left:auto}
+
+  .explain{margin-top:18px;padding:16px 18px;border-radius:12px;border:1px solid var(--border);
+    border-left:3px solid var(--lav);background:var(--surface2);font-size:14px;color:var(--muted)}
+  .explain b{color:var(--text);font-weight:600}
+  .explain .name{font-family:var(--disp);font-weight:700;color:var(--text);font-size:16px;display:block;margin-bottom:4px}
+  .explain .twin{font-family:var(--mono);font-size:11px;color:var(--teal);margin-top:8px;display:block}
+
+  .foot{margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--faint);line-height:1.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="panel">
+    <div class="modes" id="modes">
+      <button class="mode active" data-mode="stacking">Stacking <span class="tag">(empilhado)</span></button>
+      <button class="mode" data-mode="i3">i3 / Sway <span class="tag">(tiling)</span></button>
+      <button class="mode" data-mode="hypr">Hyprland <span class="tag">(tiling + gaps)</span></button>
+      <button class="mode" data-mode="niri">Niri <span class="tag">(scrollable)</span></button>
+    </div>
+
+    <div class="monitor" id="monitor">
+      <div class="topbar-ui">
+        <span class="ws" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span>
+        <span id="mode-label">stacking</span>
+        <span class="clock">09:41</span>
+      </div>
+      <div class="stage stacking" id="stage">
+        <div class="layer" id="layer"></div>
+      </div>
+      <div class="edgefade"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn primary" id="add">+ abrir janela</button>
+      <button class="btn danger" id="remove">− fechar janela</button>
+      <button class="btn" id="reset">reset</button>
+      <span class="count" id="count">0 janelas</span>
+    </div>
+
+    <div class="explain" id="explain"></div>
+  </div>
+</div>
+
+<script>
+  const APPS = [
+    {n:'Terminal',  c:'#92e3a0'},
+    {n:'Navegador', c:'#8ab4f8'},
+    {n:'Editor',    c:'#c6a8f6'},
+    {n:'Arquivos',  c:'#f2b35c'},
+    {n:'Música',    c:'#f291bb'},
+    {n:'Notas',     c:'#6dd3da'},
+    {n:'Chat',      c:'#f08b8b'},
+  ];
+
+  const COPY = {
+    stacking: {
+      name:'Stacking / Floating',
+      html:'Janelas <b>flutuam e se sobrepõem livremente</b>, como no Windows e no macOS. Abrir uma nova não mexe nas outras, ela só aparece por cima. É o comportamento padrão de qualquer Desktop Environment (GNOME, KDE, Cinnamon).',
+      twin:''
+    },
+    i3: {
+      name:'i3 / Sway — tiling manual',
+      html:'As janelas <b>se dividem para preencher a tela inteira</b>, sem sobreposição e sem desperdício de espaço. Cada janela nova reparte o espaço da janela em foco. Tudo é controlado por teclado. Visual seco e funcional: sem espaçamentos, sem cantos arredondados.',
+      twin:'// Sway = o mesmo i3, só que em Wayland'
+    },
+    hypr: {
+      name:'Hyprland — tiling dinâmico',
+      html:'<b>Mesma lógica de divisão do i3</b>, mas com a assinatura visual do Hyprland: espaçamentos (gaps) entre as janelas, cantos arredondados, e brilho/sombra na janela em foco. Mesma produtividade do tiling, com a estética que domina o r/unixporn.',
+      twin:'// repare: a arrumação é igual à do i3, o que muda é o acabamento'
+    },
+    niri: {
+      name:'Niri — scrollable tiling',
+      html:'Paradigma diferente: as janelas viram <b>colunas numa fita horizontal infinita</b>. Abrir uma janela nova <b>nunca redimensiona as outras</b>, ela só entra como mais uma coluna à direita, e a tela rola até ela. Ótimo pra fluxo sequencial e telas ultrawide.',
+      twin:'// note como as janelas antigas mantêm o tamanho ao abrir novas'
+    }
+  };
+
+  let mode = 'stacking';
+  let wins = [];        // array de índices de APP
+  let nextId = 0;
+
+  const stage   = document.getElementById('stage');
+  const layer   = document.getElementById('layer');
+  const monitor = document.getElementById('monitor');
+  const explain = document.getElementById('explain');
+  const countEl = document.getElementById('count');
+  const modeLbl = document.getElementById('mode-label');
+
+  function dwindle(n){
+    // divisão binária alternando orientação (layout "dwindle", padrão do Hyprland e comum no i3)
+    const rects=[]; let x=0,y=0,w=100,h=100;
+    for(let i=0;i<n;i++){
+      if(i===n-1){ rects.push({x,y,w,h}); break; }
+      if(i%2===0){ const half=w/2; rects.push({x,y,w:half,h}); x+=half; w-=half; }
+      else        { const half=h/2; rects.push({x,y,w,h:half}); y+=half; h-=half; }
+    }
+    return rects;
+  }
+
+  function render(){
+    countEl.textContent = wins.length + (wins.length===1?' janela':' janelas');
+    stage.className = 'stage ' + mode;
+    modeLbl.textContent = mode==='i3' ? 'i3 / sway' : mode==='hypr' ? 'hyprland' : mode;
+    monitor.classList.remove('overflow');
+
+    // remover hint antigo
+    const oldHint = stage.querySelector('.scrollhint'); if(oldHint) oldHint.remove();
+
+    // garante 1 .win por janela
+    while(layer.children.length < wins.length){
+      const el=document.createElement('div'); el.className='win';
+      el.innerHTML='<div class="bar"><i></i><i></i><i></i><span class="label"></span></div><div class="body"></div>';
+      layer.appendChild(el);
+    }
+    while(layer.children.length > wins.length){ layer.removeChild(layer.lastChild); }
+
+    const stageW = stage.clientWidth || 600;
+    let rects = [];
+    if(mode==='i3' || mode==='hypr') rects = dwindle(wins.length);
+
+    // niri: colunas de largura fixa numa fita rolável
+    const colW = Math.min(260, stageW*0.5);
+    const gap  = mode==='hypr' ? 2.4 : 0;       // em %
+    const stripW = wins.length*colW;
+    const overflow = stripW > stageW;
+    if(mode==='niri'){
+      layer.style.width = stripW+'px';
+      layer.style.transform = overflow ? `translateX(${stageW-stripW}px)` : 'translateX(0)';
+      if(overflow) monitor.classList.add('overflow');
+    } else {
+      layer.style.width=''; layer.style.transform='translateX(0)';
+    }
+
+    [...layer.children].forEach((el,i)=>{
+      const app = APPS[wins[i]%APPS.length];
+      el.style.setProperty('--wc', app.c);
+      el.querySelector('.label').textContent = app.n;
+      el.classList.toggle('focus', i===wins.length-1);
+
+      if(mode==='stacking'){
+        const off = i*6;
+        el.style.left=(8+off)+'%'; el.style.top=(8+off*1.1)+'%';
+        el.style.width='56%'; el.style.height='58%';
+        el.style.zIndex = 10+i;
+      }
+      else if(mode==='niri'){
+        el.style.zIndex=10;
+        el.style.left=(i*colW+6)+'px'; el.style.top='3%';
+        el.style.width=(colW-12)+'px'; el.style.height='94%';
+      }
+      else { // i3 / hypr
+        const r=rects[i]||{x:0,y:0,w:100,h:100};
+        el.style.zIndex=10;
+        el.style.left=(r.x+gap)+'%'; el.style.top=(r.y+gap)+'%';
+        el.style.width=(r.w-gap*2)+'%'; el.style.height=(r.h-gap*2)+'%';
+      }
+    });
+
+    if(mode==='niri'){
+      const hint=document.createElement('div'); hint.className='scrollhint'; hint.textContent='← rolável →';
+      stage.appendChild(hint);
+    }
+
+    const c = COPY[mode];
+    explain.innerHTML = `<span class="name">${c.name}</span>${c.html}${c.twin?`<span class="twin">${c.twin}</span>`:''}`;
+  }
+
+  document.getElementById('add').onclick = ()=>{ wins.push(nextId++); if(wins.length>7) wins.shift(); render(); };
+  document.getElementById('remove').onclick = ()=>{ wins.pop(); render(); };
+  document.getElementById('reset').onclick = ()=>{ wins=[]; nextId=0; render(); };
+
+  document.querySelectorAll('.mode').forEach(b=>{
+    b.onclick = ()=>{
+      document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active'); mode=b.dataset.mode; render();
+    };
+  });
+
+  window.addEventListener('resize', render);
+
+  // estado inicial: 3 janelas pra já mostrar algo
+  wins=[0,1,2]; nextId=3; render();
+</script>
+</body>
+</html>
