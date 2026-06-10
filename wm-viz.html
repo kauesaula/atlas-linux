@@ -248,6 +248,12 @@
 
     const c = COPY[mode];
     explain.innerHTML = `<span class="name">${c.name}</span>${c.html}${c.twin?`<span class="twin">${c.twin}</span>`:''}`;
+
+    if (window.parent !== window) {
+      requestAnimationFrame(() => {
+        window.parent.postMessage({ atlasVizHeight: document.body.scrollHeight }, '*');
+      });
+    }
   }
 
   document.getElementById('add').onclick = ()=>{ wins.push(nextId++); if(wins.length>7) wins.shift(); render(); };

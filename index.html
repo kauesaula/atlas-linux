@@ -25,9 +25,9 @@
   <p class="subtitle">O mapa do ecossistema: das bases milenares aos compositores Wayland mais brilhantes em 'r/unixporn'.</p>
   <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já manja, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
   <div class="meta-row">
-    <span class="chip"><b>24</b> distros</span>
+    <span class="chip"><b>+20</b> distros</span>
     <span class="chip"><b>6</b> window managers</span>
-    <span class="chip"><b>2</b> shells Quickshell</span>
+    <span class="chip"><b>3</b> shells Quickshell</span>
     <span class="chip"><b>7</b> conceitos-base</span>
     <span class="chip">cores = <b>famílias</b></span>
   </div>
@@ -738,10 +738,17 @@
 
   <p class="sec-intro" style="margin-top:24px">Experimente abrir janelas em cada modelo para sentir a diferença na prática:</p>
 
-  <iframe src="wm-viz.html"
+  <iframe id="wm-viz-frame" src="wm-viz.html"
           title="Visualizador interativo de Window Managers"
-          style="width:100%;height:720px;border:1px solid var(--border);border-radius:18px;background:var(--surface);display:block;margin-top:12px;"
-          loading="lazy"></iframe>
+          style="width:100%;height:720px;border:1px solid var(--border);border-radius:18px;background:var(--surface);display:block;margin-top:12px;overflow:hidden;"
+          scrolling="no" loading="lazy"></iframe>
+  <script>
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.atlasVizHeight) {
+      document.getElementById('wm-viz-frame').style.height = e.data.atlasVizHeight + 'px';
+    }
+  });
+  </script>
 </section>
 
 <!-- ============ QUICKSHELL ============ -->
