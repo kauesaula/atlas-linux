@@ -10,8 +10,8 @@ Site estático, sem build e sem dependências. Abra o `index.html` ou acesse a v
 
 ## ✨ O que tem aqui
 
-- **24 distros** com ficha completa (público-alvo, casos de uso, dificuldade, sinergias).
-- **6 window managers** + a nova geração de **shells Quickshell** (Caelestia, Noctalia).
+- **+20 distros** com ficha completa (público-alvo, casos de uso, dificuldade, sinergias).
+- **6 window managers** + a nova geração de **shells Quickshell**.
 - **7 conceitos-base** explicados sem dor (kernel, init, shell, package manager, DE, WM, dotfiles).
 - Cores = **famílias** (Debian, Arch, Fedora/RHEL, SUSE, independentes, segurança, além do Linux).
 
@@ -19,7 +19,6 @@ Site estático, sem build e sem dependências. Abra o `index.html` ou acesse a v
 
 | Recurso | O que faz |
 |---|---|
-| 🔎 **Busca** | Filtra distros, WMs e conceitos por texto em tempo real. |
 | 🏷️ **Filtro por família** | Chips coloridos isolam uma linhagem de cada vez. |
 | 🔽 **Cards colapsáveis** | Recolha/expanda a ficha técnica de cada distro (e "recolher tudo"). |
 | 🧭 **Quiz de decisão** | 5 perguntas → recomenda a distro ideal + uma reserva, com link pra ficha. |
@@ -49,14 +48,6 @@ atlas-linux/
 
 O **design system** vive intacto em `css/base.css`; toda a camada interativa foi
 adicionada por cima, sem alterar os tokens ou os componentes existentes.
-
----
-
-## 🌐 Publicando no GitHub Pages
-
-1. Em **Settings → Pages**, defina **Source: GitHub Actions**.
-2. Faça merge na branch `main` — o workflow `Deploy GitHub Pages` publica automaticamente.
-3. O site fica disponível em `https://<usuário>.github.io/atlas-linux/`.
 
 ---
 
