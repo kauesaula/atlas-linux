@@ -23,7 +23,7 @@
   <div class="eyebrow">manual de campo</div>
   <h1 class="title">Atlas <span class="grad">Linux</span></h1>
   <p class="subtitle">O mapa do ecossistema: das bases milenares aos compositores Wayland mais brilhantes em 'r/unixporn'.</p>
-  <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já manja, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
+  <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já entende, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
   <div class="meta-row">
     <span class="chip"><b>+20</b> distros</span>
     <span class="chip"><b>6</b> window managers</span>
@@ -85,12 +85,12 @@
   <div class="sec-head">
     <div class="sec-idx">// <span>00</span> · o vocabulário mínimo</div>
     <h2 class="sec-title">Fundamentos</h2>
-    <p class="sec-intro">Antes de comparar distros, sete peças. Toda distro é uma <b>combinação dessas peças</b> com escolhas e enfeites diferentes por cima. Entenda isso e o resto vira só "qual sabor".</p>
+    <p class="sec-intro">Antes de comparar distros, sete peças. Toda distro é uma <b>combinação dessas peças</b> com escolhas e enfeites diferentes por cima. Entenda isso e o resto vira só "qual flavor".</p>
   </div>
 
   <div class="callout">
     <span class="tag">contexto: UNIX, GNU e Linux</span>
-    <b>UNIX</b> (anos 1970) foi o sistema que inventou as ideias que usamos até hoje: o terminal, "tudo é arquivo", programinhas que se combinam. Só que era fechado e caro. Nos anos 1980, o projeto <b>GNU</b> nasceu pra criar um UNIX livre e gratuito, e produziu quase todas as peças (o terminal, os utilitários, o compilador), mas faltava o núcleo. Em 1991, o <b>kernel Linux</b> entrou exatamente nesse buraco. Por isso o nome tecnicamente correto do sistema é <b>GNU/Linux</b>: as ferramentas GNU rodando sobre o kernel Linux. No dia a dia, todo mundo chama só de "Linux".
+    <b>UNIX</b> (anos 70) foi o sistema que inventou as ideias que usamos até hoje: o terminal, "tudo é arquivo", programinhas que se combinam. Só que era fechado e caro. Nos anos 80, o projeto <b>GNU</b> nasceu pra criar um UNIX livre e gratuito, e produziu quase todas as peças (o terminal, os utilitários, o compilador...), mas faltava o núcleo. Em 91, o <b>kernel Linux</b> entrou exatamente nesse buraco. Por isso o nome tecnicamente correto do sistema é <b>GNU/Linux</b>: as ferramentas GNU rodando sobre o kernel Linux. No dia a dia, todo mundo chama só de "Linux".
   </div>
 
   <div class="concepts">
@@ -129,7 +129,7 @@
     <div class="ccard">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 9h20"/></svg>
       <h4>Desktop Environment</h4>
-      <div class="term">o DE · ambiente completo</div>
+      <div class="term">o "DE" · ambiente completo</div>
       <p>O <b>pacote visual pronto e coeso</b>: barra de tarefas, menu, gerenciador de arquivos, configurações, tema, tudo integrado. <b>GNOME</b>, <b>KDE Plasma</b>, <b>Cinnamon</b> e <b>Xfce</b> são os grandes nomes.</p>
       <div class="ana">Analogia: a <b>casa já mobiliada e decorada</b>, pronta pra morar.</div>
     </div>
@@ -156,8 +156,8 @@
     <b>Distro = Kernel + Init + Gerenciador de Pacotes + (Desktop Environment ou Window Manager) + decisões de filosofia.</b> Quando duas distros parecem iguais, a diferença real está nessas escolhas e na comunidade por trás.
   </div>
 
-  <h3 class="subhead"><span class="mk">#</span> Onde os programas moram</h3>
-  <p class="sec-intro" style="margin-top:0">Cada família tem seu gerenciador. A boa notícia de 2026: os formatos <b>universais</b> rodam em qualquer distro, por isso "trocar de distro" hoje quase nunca significa perder software.</p>
+  <h3 class="subhead"><span class="mk">#</span> Onde os programas estão</h3>
+  <p class="sec-intro" style="margin-top:0">Cada família tem seu gerenciador. A boa notícia é que, atualmente, os formatos <b>universais</b> rodam em qualquer distro, por isso "trocar de distro" hoje quase nunca significa perder software.</p>
   <table class="cmp">
     <tr><th>Família</th><th>Gerenciador</th><th>Comando típico</th><th>Formato</th></tr>
     <tr><td><b>Debian / Ubuntu</b></td><td>apt</td><td><code>apt install firefox</code></td><td>.deb</td></tr>
@@ -176,7 +176,7 @@
   <div class="concepts" style="margin-top:4px">
     <div class="ccard">
       <h4 style="margin-bottom:12px">Desktop Environments mais comuns</h4>
-      <p><b>GNOME</b>: moderno e minimalista, fluxo tipo macOS/iPad (padrão de Ubuntu e Fedora).<br><b>KDE Plasma</b>: "Windows com esteroides", customizável até o último pixel.<br><b>Xfce</b>: leve e clássico.<br><b>Cinnamon</b>: tradicional, do time do Mint.<br><b>MATE</b>: cara de GNOME 2.<br><b>LXQt</b>: ultra-leve.<br><b>Budgie</b>: bonito e equilibrado.<br><b>COSMIC</b>: novo, escrito em Rust, da System76.</p>
+      <p><b>GNOME</b>: moderno e minimalista, fluxo tipo macOS/iPad (padrão de Ubuntu e Fedora).<br><b>KDE Plasma</b>: "Windows com esteroides", customizável até o último pixel.<br><b>Xfce</b>: leve e clássico.<br><b>Cinnamon</b>: tradicional, do time do Mint.<br><b>MATE</b>: continuação do GNOME 2.<br><b>LXQt</b>: ultra-leve.</p>
     </div>
     <div class="ccard">
       <h4 style="margin-bottom:4px">Shells de comando</h4>
@@ -187,10 +187,10 @@
 
   <h3 class="subhead"><span class="mk">#</span> O jargão que você vai ver o tempo todo</h3>
   <table class="cmp">
-    <tr><th>Termo</th><th>O que significa</th><th>Pra quem</th></tr>
-    <tr><td><b>Lançamento pontual</b> (fixo)</td><td>Versões "congeladas" (ex.: Ubuntu 24.04). Você pula de uma versão pra outra de tempos em tempos. Previsível e estável.</td><td>Quem quer paz</td></tr>
-    <tr><td><b>Rolling release</b></td><td>Atualização contínua, sem "versões". Sempre o software mais novo, em troca de um pouco mais de atenção.</td><td>Entusiasta</td></tr>
-    <tr><td><b>Bleeding edge</b></td><td>"No fio da navalha": o mais novo possível, às vezes antes de estar 100% testado. Mais novidade, mais risco.</td><td>Quem gosta de viver perigosamente</td></tr>
+    <tr><th>Termo</th><th>O que significa</th><th>Perfil</th></tr>
+    <tr><td><b>Point release</b></td><td>Versões "congeladas" (ex.: Ubuntu 24.04). Você pula de uma versão pra outra de tempos em tempos. Previsível e estável.</td><td>Quem quer paz na estabilidade</td></tr>
+    <tr><td><b>Rolling release</b></td><td>Atualização contínua, sem "versões". Sempre o software mais novo, em troca de um pouco mais de atenção.</td><td>Entusiastas do sistema</td></tr>
+    <tr><td><b>Bleeding edge</b></td><td>"No fio da navalha": o mais novo possível, às vezes antes de estar 100% testado. Mais novidade, mais risco.</td><td>Usuários avançados/com experiência</td></tr>
     <tr><td><b>LTS</b></td><td>Long Term Support. Uma versão pontual com suporte estendido (tipo 5 anos). Pra ficar parado em paz.</td><td>Empresas, servidores</td></tr>
     <tr><td><b>Imutável / atômica</b></td><td>O sistema-base é somente-leitura e atualiza como um bloco único, que pode ser revertido inteiro. Quase impossível de quebrar.</td><td>Quem quer manutenção zero</td></tr>
   </table>
@@ -269,7 +269,7 @@
   <article id="ubuntu" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Ubuntu</span><span class="d-tag">Canonical · o "Linux que todo mundo conhece"</span></div>
     <div class="badges"><span class="badge fam">base · Debian</span><span class="badge fixo">LTS a cada 2 anos</span><span class="badge">apt + Snap</span><span class="badge">empresa</span></div>
-    <p class="d-desc">Pegou o Debian e o deixou <b>amigável e polido</b>, virando porta de entrada de milhões. Tem ciclo previsível: versões <span class="hl">LTS</span> (suporte de 5 anos) para quem quer sossego, e lançamentos a cada 6 meses para quem quer o mais novo. É o alvo nº1 de tutoriais e softwares comerciais: se um app suporta Linux, quase sempre suporta Ubuntu. Controverso pelo formato <b>Snap</b>, que divide opiniões.</p>
+    <p class="d-desc">Pegou o Debian e o deixou <b>amigável e polido</b>, virando porta de entrada de milhões. Tem ciclo previsível: versões <span class="hl">LTS</span> (suporte de 5 anos) para quem quer sossego, e lançamentos a cada 6 meses para quem quer o mais novo. É o alvo nº1 de tutoriais e softwares comerciais: se um app suporta Linux, quase sempre suporta Ubuntu.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME (bem customizado pela Canonical)</span></div>
       <div class="frow"><span class="k">flavors</span><span class="v">Kubuntu (KDE), Xubuntu (Xfce), Lubuntu (LXQt), Ubuntu MATE, Budgie, Studio</span></div>
@@ -285,7 +285,7 @@
   <article id="mint-zorin" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Linux Mint &amp; Zorin OS</span><span class="d-tag">os "ex-Windows que dão certo"</span></div>
     <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">foco em conforto</span></div>
-    <p class="d-desc">Agrupei porque têm a <b>mesma missão</b>: receber quem vem do Windows sem susto. O <span class="hl">Mint</span> é o queridinho do iniciante, com interface <b>Cinnamon</b> familiar (menu, barra embaixo), atualizações sem dramas e by default <b>sem Snap</b>. O <span class="hl">Zorin</span> vai além no visual: tem um painel "Zorin Appearance" que reorganiza o desktop pra imitar Windows 11, macOS ou ChromeOS. Ideal pra empresa migrar funcionários sem treinamento.</p>
+    <p class="d-desc">Agrupei porque têm a <b>mesma missão</b>: receber quem vem do Windows sem susto. O <span class="hl">Mint</span> é o queridinho do iniciante, com interface <b>Cinnamon</b> familiar (menu, barra embaixo), atualizações sem dramas e by default <b>sem Snap</b>. O <span class="hl">Zorin</span> vai além no visual: tem um painel "Zorin Appearance" que reorganiza o desktop pra imitar Windows 11, macOS ou ChromeOS.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">Mint: Cinnamon (também MATE, Xfce) · Zorin: GNOME muito customizado</span></div>
       <div class="frow"><span class="k">edições</span><span class="v">Mint: Cinnamon/MATE/Xfce + LMDE (base Debian) · Zorin: Core, Lite, Education, Pro</span></div>
@@ -303,7 +303,7 @@
     <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">dev &amp; criativo</span></div>
     <p class="d-desc">Criada pela System76 (fabricante de notebooks Linux), foca em <b>produtividade</b> e em resolver um problema clássico: placas <b>NVIDIA</b> historicamente têm suporte mais complicado no Linux do que as placas <b>AMD</b>, que costumam funcionar "de primeira". O Pop!_OS ataca isso de frente, entregando uma ISO própria com os drivers NVIDIA já embutidos e configurados, o que poupa o usuário da parte chata. De quebra, popularizou o <b>tiling automático</b> antes de virar moda. Hoje está construindo o <span class="hl">COSMIC</span>, um ambiente de desktop novo, escrito em Rust, que muita gente acompanha de perto.</p>
     <div class="ficha">
-      <div class="frow"><span class="k">DE / WM</span><span class="v">COSMIC (novo, em Rust) · antes GNOME + tiling</span></div>
+      <div class="frow"><span class="k">DE / WM</span><span class="v">COSMIC (novo) · antes GNOME + tiling</span></div>
       <div class="frow"><span class="k">público</span><span class="v">Devs, engenheiros, criadores de conteúdo</span></div>
       <div class="frow"><span class="k">casos de uso</span><span class="v">Programação, workstation com GPU, jogos casuais</span></div>
       <div class="frow"><span class="k">sinergia</span><span class="v">GPUs NVIDIA, fluxo com muitas janelas, CUDA/ML</span></div>
@@ -388,7 +388,7 @@
     <p class="d-desc">Pega o Arch e adiciona <b>conveniências</b>: instalador gráfico, detecção automática de hardware/drivers e edições prontas com KDE, GNOME ou Xfce. A diferença-chave é que tem <b>repositórios próprios</b> que <span class="hl">seguram os pacotes por ~2 semanas</span> para testá-los antes. Fica mais estável, mas pode causar conflito ao misturar com o AUR (que não espera). Já teve tropeços históricos (certificados expirados), então divide opiniões.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">Edições oficiais: KDE Plasma, GNOME, Xfce</span></div>
-      <div class="frow"><span class="k">público</span><span class="v">Quem quer "sabor Arch" pronto, com GUI pra tudo</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer um ambiente Arch pronto, com GUI pra tudo</span></div>
       <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop diário, transição confortável pro mundo Arch</span></div>
       <div class="frow"><span class="k">sinergia</span><span class="v">Detecção de GPU automática, usuário que não quer terminal</span></div>
       <div class="frow wide"><span class="k">na prática</span><span class="v">Funciona muito bem out-of-the-box. O cuidado é com o AUR: use com parcimônia para não quebrar pelo descompasso de versões.</span></div>
@@ -414,7 +414,7 @@
   <article id="garuda" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Garuda Linux</span><span class="d-tag">Arch "vitrine de gamer"</span></div>
     <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman + AUR</span><span class="badge">visual + gaming</span></div>
-    <p class="d-desc">É o Arch que entra na sala fazendo barulho: visual <b>exuberante</b> (o tema Dragonized do KDE é marcante), tweaks de performance, <b>zram</b> e, talvez o mais importante, <span class="hl">Btrfs com snapshots automáticos</span>. Se um update quebrar, você volta no tempo em segundos. Vem com utilitários gráficos (Garuda Assistant) que centralizam manutenção. Lindo, mas mais "pesado" que outros Arch.</p>
+    <p class="d-desc">É o Arch que entra na sala fazendo barulho: visual <b>exuberante</b> (o tema Dragonized do KDE é marcante), tweaks de performance, <b>zram</b> e, talvez o mais importante, <span class="hl">Btrfs com snapshots automáticos</span>, o que significa que se um update quebrar, você pode "voltar no tempo" em segundos para uma versão estável do seu ambiente. Vem com utilitários gráficos (Garuda Assistant) que centralizam manutenção. Lindo, mas mais "pesado" que outros Arch.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Dragonized (carro-chefe), também GNOME, Sway, etc.</span></div>
       <div class="frow"><span class="k">público</span><span class="v">Gamer que quer impacto visual sem montar do zero</span></div>
@@ -527,7 +527,7 @@
   <article id="opensuse" class="distro" style="--c:var(--fam-suse)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">openSUSE</span><span class="d-tag">a europeia robusta · "duas distros em uma"</span></div>
     <div class="badges"><span class="badge fam">família · SUSE</span><span class="badge fixo">Leap</span><span class="badge rolling">Tumbleweed</span><span class="badge">zypper · .rpm</span></div>
-    <p class="d-desc">Subvalorizada, mas excelente. Oferece dois sabores: <span class="hl">Leap</span> (estável, lançamento pontual, perfeito pra servidor) e <span class="hl">Tumbleweed</span> (rolling, mas <b>testado automaticamente pelo openQA</b>, talvez o rolling mais seguro que existe). O grande diferencial é o <b>YaST</b>, um painel de controle gráfico poderosíssimo que configura quase tudo, e o <b>Btrfs com snapper</b> para reverter updates.</p>
+    <p class="d-desc">Subvalorizada, mas excelente. Oferece dois sabores: <span class="hl">Leap</span> (estável, lançamento pontual, perfeito pra servidor) e <span class="hl">Tumbleweed</span> (rolling, mas <b>testado automaticamente pelo openQA</b>, talvez o rolling mais seguro que existe). O grande diferencial é o <b>YaST</b>, um painel de controle gráfico poderosíssimo que configura quase tudo, e o <b>Btrfs com snapper</b> ("viagem no tempo" comentada anteriormente) para reverter updates.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Plasma ou GNOME (escolha na instalação)</span></div>
       <div class="frow"><span class="k">variantes</span><span class="v">Leap, Tumbleweed; Aeon/Kalpa (atômicas)</span></div>
@@ -703,7 +703,7 @@
       <div class="top"><h4>Niri</h4><span class="pill way">Wayland</span></div>
       <div class="cfg">scrollable tiling · escrito em Rust</div>
       <div class="wmviz"><span style="flex:1"></span><span style="flex:1"></span><span style="flex:1;opacity:.5"></span><span style="flex:1;opacity:.25"></span></div>
-      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust, estável como daily driver, e com XWayland integrado via xwayland-satellite nas versões recentes. Ganhou tração rápido e é o queridinho de 2025/26.</p>
+      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust e sendo estável como daily driver, ganhou tração rápido e se tornou o queridinho em 2026, principalmente se for usado no NixOS.</p>
     </div>
     <div class="wm">
       <div class="top"><h4>Sway</h4><span class="pill way">Wayland</span></div>
@@ -825,7 +825,7 @@
     </div>
 
     <div class="verdict">
-      <b>O insight de 2026:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
+      <b>Um insight da atualidade:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
     </div>
   </div>
 </section>
@@ -847,7 +847,7 @@
 <footer class="wrap">
   <div class="big">Fim do mapa. Mas não da exploração.</div>
   <p>Este documento é um <b>retrato de 2026</b>: o ecossistema Linux se move rápido (sobretudo a cena Wayland/Quickshell). Trate-o como dotfiles, um artefato vivo, pra revisar e versionar quando algo mudar.</p>
-  <p style="margin-top:18px;color:var(--faint)">// cores = famílias · dificuldade = 1–5 blocos<br>// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"<br>// próxima revisão sugerida: quando o COSMIC DE sair stable ou o Niri 1.0 chegar</p>
+  <p style="margin-top:18px;color:var(--faint)">// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"</p>
   <p style="margin-top:14px"><b>Atlas Linux</b> é um projeto open-source. Contribuições, correções e traduções são bem-vindas.</p>
 </footer>
 
