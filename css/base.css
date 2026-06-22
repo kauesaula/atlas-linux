@@ -212,6 +212,16 @@
   table.cmp td{color:var(--muted)} table.cmp td b{color:var(--text);font-weight:600}
   table.cmp tr:hover td{background:var(--surface2)}
 
+  /* layout de duas colunas (diretórios + colinha de terminal) */
+  .duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px;align-items:start}
+  .duo-col{min-width:0}                 /* evita overflow das tabelas no grid */
+  .duo-grid .cmp{font-size:13px}        /* compacta levemente as tabelas lado a lado */
+  .duo-grid .cmp code{word-break:break-word}
+  @media(max-width:1000px){
+    .duo-grid{grid-template-columns:1fr}
+    .duo-grid .cmp{font-size:13.5px}    /* full-width no mobile: restaura o tamanho base */
+  }
+
   /* GF GUIDE */
   .guide{background:linear-gradient(135deg,rgba(146,227,160,.06),rgba(198,168,246,.05));
     border:1px solid var(--border2);border-radius:20px;padding:clamp(24px,4vw,40px);margin-top:8px}
