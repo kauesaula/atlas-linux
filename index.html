@@ -23,11 +23,11 @@
   <div class="eyebrow">manual de campo</div>
   <h1 class="title">Atlas <span class="grad">Linux</span></h1>
   <p class="subtitle">O mapa do ecossistema: das bases milenares aos compositores Wayland mais brilhantes em 'r/unixporn'.</p>
-  <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já entende, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
+  <p class="lede">Um guia honesto, organizado por famílias, para entender o ecossistema Linux. Cada distro tem uma ficha completa com público-alvo, casos de uso e exemplos práticos. Se você está chegando agora, comece pelos <b>Fundamentos</b> e depois siga a árvore genealógica; se já manja, pule direto pra distro que te interessa. No final, um <b>guia de decisão</b> ajuda a escolher a distro certa para cada perfil.</p>
   <div class="meta-row">
-    <span class="chip"><b>+20</b> distros</span>
+    <span class="chip"><b>24</b> distros</span>
     <span class="chip"><b>6</b> window managers</span>
-    <span class="chip"><b>3</b> shells Quickshell</span>
+    <span class="chip"><b>2</b> shells Quickshell</span>
     <span class="chip"><b>7</b> conceitos-base</span>
     <span class="chip">cores = <b>famílias</b></span>
   </div>
@@ -38,8 +38,11 @@
 
 <nav class="toc">
   <div class="grp">// começo</div>
-  <a href="#fundamentos">00 · Fundamentos</a>
-  <a href="#familias">01 · As famílias</a>
+  <a href="#fundamentos">Fundamentos</a>
+  <a href="#pacotes">Pacotes &amp; formatos</a>
+  <a href="#diretorios">Diretórios do sistema</a>
+  <a href="#terminal">Colinha de terminal</a>
+  <a href="#familias">As famílias</a>
   <div class="grp">// debian</div>
   <a href="#debian">Debian</a>
   <a href="#ubuntu">Ubuntu</a>
@@ -83,14 +86,14 @@
 <!-- ============ FUNDAMENTOS ============ -->
 <section id="fundamentos" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>00</span> · o vocabulário mínimo</div>
+    <div class="sec-idx">// o vocabulário mínimo</div>
     <h2 class="sec-title">Fundamentos</h2>
-    <p class="sec-intro">Antes de comparar distros, sete peças. Toda distro é uma <b>combinação dessas peças</b> com escolhas e enfeites diferentes por cima. Entenda isso e o resto vira só "qual flavor".</p>
+    <p class="sec-intro">Antes de comparar distros, sete peças. Toda distro é uma <b>combinação dessas peças</b> com escolhas e enfeites diferentes por cima. Entenda isso e o resto vira só "qual sabor".</p>
   </div>
 
   <div class="callout">
     <span class="tag">contexto: UNIX, GNU e Linux</span>
-    <b>UNIX</b> (anos 70) foi o sistema que inventou as ideias que usamos até hoje: o terminal, "tudo é arquivo", programinhas que se combinam. Só que era fechado e caro. Nos anos 80, o projeto <b>GNU</b> nasceu pra criar um UNIX livre e gratuito, e produziu quase todas as peças (o terminal, os utilitários, o compilador...), mas faltava o núcleo. Em 91, o <b>kernel Linux</b> entrou exatamente nesse buraco. Por isso o nome tecnicamente correto do sistema é <b>GNU/Linux</b>: as ferramentas GNU rodando sobre o kernel Linux. No dia a dia, todo mundo chama só de "Linux".
+    <b>UNIX</b> (anos 1970) foi o sistema que inventou as ideias que usamos até hoje: o terminal, "tudo é arquivo", programinhas que se combinam. Só que era fechado e caro. Nos anos 1980, o projeto <b>GNU</b> nasceu pra criar um UNIX livre e gratuito, e produziu quase todas as peças (o terminal, os utilitários, o compilador), mas faltava o núcleo. Em 1991, o <b>kernel Linux</b> entrou exatamente nesse buraco. Por isso o nome tecnicamente correto do sistema é <b>GNU/Linux</b>: as ferramentas GNU rodando sobre o kernel Linux. No dia a dia, todo mundo chama só de "Linux".
   </div>
 
   <div class="concepts">
@@ -129,7 +132,7 @@
     <div class="ccard">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 9h20"/></svg>
       <h4>Desktop Environment</h4>
-      <div class="term">o "DE" · ambiente completo</div>
+      <div class="term">o DE · ambiente completo</div>
       <p>O <b>pacote visual pronto e coeso</b>: barra de tarefas, menu, gerenciador de arquivos, configurações, tema, tudo integrado. <b>GNOME</b>, <b>KDE Plasma</b>, <b>Cinnamon</b> e <b>Xfce</b> são os grandes nomes.</p>
       <div class="ana">Analogia: a <b>casa já mobiliada e decorada</b>, pronta pra morar.</div>
     </div>
@@ -156,8 +159,8 @@
     <b>Distro = Kernel + Init + Gerenciador de Pacotes + (Desktop Environment ou Window Manager) + decisões de filosofia.</b> Quando duas distros parecem iguais, a diferença real está nessas escolhas e na comunidade por trás.
   </div>
 
-  <h3 class="subhead"><span class="mk">#</span> Onde os programas estão</h3>
-  <p class="sec-intro" style="margin-top:0">Cada família tem seu gerenciador. A boa notícia é que, atualmente, os formatos <b>universais</b> rodam em qualquer distro, por isso "trocar de distro" hoje quase nunca significa perder software.</p>
+  <h3 class="subhead"><span class="mk">#</span> Onde os programas moram</h3>
+  <p class="sec-intro" style="margin-top:0">Cada família tem seu gerenciador. A boa notícia de 2026: os formatos <b>universais</b> rodam em qualquer distro, por isso "trocar de distro" hoje quase nunca significa perder software.</p>
   <table class="cmp">
     <tr><th>Família</th><th>Gerenciador</th><th>Comando típico</th><th>Formato</th></tr>
     <tr><td><b>Debian / Ubuntu</b></td><td>apt</td><td><code>apt install firefox</code></td><td>.deb</td></tr>
@@ -167,16 +170,118 @@
     <tr><td><b>Gentoo</b></td><td>portage</td><td><code>emerge firefox</code></td><td>código-fonte</td></tr>
     <tr><td><b>NixOS</b></td><td>nix</td><td>config declarativa</td><td>.nix</td></tr>
   </table>
-  <div class="callout green">
-    <span class="tag">os universais: rodam em qualquer distro</span>
-    <b>Flatpak</b> (loja Flathub; o mais usado hoje) · <b>Snap</b> (da Canonical) · <b>AppImage</b> (um único executável portátil, estilo <code>.exe</code>). São eles que fazem a pergunta "qual distro?" pesar menos do que pesava em 2015.
+
+  <h3 class="subhead" id="pacotes"><span class="mk">#</span> Os formatos universais</h3>
+  <p class="sec-intro" style="margin-top:0">Os gerenciadores acima (apt, dnf, pacman...) instalam pacotes feitos especificamente pra aquela família. Se você troca de distro, perde acesso a eles. É aí que entram os <b>formatos universais</b>: pacotes que rodam em qualquer distro, independente da família. Hoje são três, e entender a diferença entre eles economiza muita confusão.</p>
+
+  <div class="concepts">
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22V12"/></svg>
+      <h4>Flatpak</h4>
+      <div class="term">o mais popular hoje</div>
+      <p>Cada app roda dentro de uma <b>sandbox</b> (um cercado de segurança: o app fica isolado do resto do sistema e não mexe nos seus arquivos pessoais nem em outras partes do SO a menos que você autorize), com suas próprias dependências, sem tocar no sistema. A loja central é o <b>Flathub</b>, que já tem praticamente tudo: Spotify, Discord, Steam, OBS, Bottles, navegadores. Muitas distros integram o Flathub direto na loja gráfica (GNOME Software, KDE Discover), então instalar um Flatpak pode ser tão simples quanto clicar em "Instalar". É o formato que a maioria das distros recomenda como padrão pra apps do dia a dia.</p>
+      <div class="ana">Analogia: um <b>food truck</b> que traz a própria cozinha. Funciona em qualquer esquina (distro), prepara tudo com os ingredientes que trouxe (dependências próprias) e não precisa usar a cozinha do restaurante local (o sistema).</div>
+      <p style="margin-top:8px;font-size:13px;color:var(--muted)"><b>Quando usar:</b> pra quase tudo. É o caminho padrão pra instalar apps gráficos atualmente.</p>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h4>Snap</h4>
+      <div class="term">o formato da Canonical (Ubuntu)</div>
+      <p>Criado pela <b>Canonical</b> (a empresa por trás do Ubuntu). Também roda em sandbox e também tem uma loja central (Snap Store). A diferença é que a Snap Store é controlada exclusivamente pela Canonical, e isso divide opiniões na comunidade: quem gosta, valoriza a conveniência (atualizações automáticas, integração nativa no Ubuntu); quem não gosta, critica a falta de controle comunitário sobre a loja. Tecnicamente, Snaps podem demorar um pouco mais pra abrir na primeira vez. É o formato padrão do Ubuntu. Algumas distros, como o <b>Linux Mint</b>, optaram por desativá-lo por padrão.</p>
+      <div class="ana">Analogia: uma <b>máquina de vending</b>. Conveniente, sempre atualizada, disponível 24h. Mas você não escolhe o fornecedor e não controla o que entra na máquina.</div>
+      <p style="margin-top:8px;font-size:13px;color:var(--muted)"><b>Quando usar:</b> se você está no Ubuntu e o app que quer só tem versão Snap, funciona bem. Fora do Ubuntu, o Flatpak costuma ser a primeira opção.</p>
+    </div>
+
+    <div class="ccard">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10 12l2 2 4-4"/></svg>
+      <h4>AppImage</h4>
+      <div class="term">o executável portátil</div>
+      <p>O mais simples dos três. Você baixa <b>um único arquivo</b>, dá permissão de execução e roda. Sem instalação, sem loja, sem gerenciador. Funciona como um <code>.exe</code> portátil: dá pra carregar num pendrive e rodar em qualquer máquina Linux. Em compensação, não tem atualização automática (na maioria dos casos) e não tem sandbox por padrão.</p>
+      <div class="ana">Analogia: uma <b>marmita pronta</b>. Você pega, abre e come. Não precisa de cozinha, não precisa de prato. Mas também não tem ninguém garantindo que está fresca amanhã (sem auto-update).</div>
+      <p style="margin-top:8px;font-size:13px;color:var(--muted)"><b>Quando usar:</b> quando o app que você quer não está no Flathub nem nos repositórios da sua distro, ou quando você quer algo 100% portátil.</p>
+    </div>
   </div>
+
+  <div class="callout green">
+    <span class="tag">e o pacote nativo, quando usar?</span>
+    Sempre que possível pra <b>ferramentas de sistema</b> (terminal, drivers, utilitários do SO), porque o gerenciador nativo da sua distro garante compatibilidade e integração. Pra <b>apps do dia a dia</b> (navegador, música, chat, jogos), os universais resolvem melhor, porque você não perde eles ao trocar de distro. Na prática, a maioria das pessoas usa <b>nativo pro sistema + Flatpak pros apps</b> e vive feliz.
+  </div>
+
+  <h3 class="subhead" id="diretorios"><span class="mk">#</span> A árvore de diretórios</h3>
+  <p class="sec-intro" style="margin-top:0">No Windows, tudo começa em <code>C:\</code>. No Linux, tudo começa em <code>/</code> (chamado de "raiz" ou "root"). A partir daí, cada pasta tem um papel bem definido. Pense no sistema como um <b>prédio</b>: cada andar tem uma função, e saber onde fica cada coisa evita se perder nos primeiros dias.</p>
+
+  <div class="duo-grid">
+
+  <!-- COLUNA ESQUERDA: DIRETÓRIOS -->
+  <div class="duo-col">
+  <table class="cmp">
+    <tr><th>Diretório</th><th>Papel</th><th>No prédio</th></tr>
+    <tr><td><code>/</code></td><td>A raiz de tudo. Toda pasta e arquivo do sistema vive dentro dela.</td><td>O <b>terreno</b>. Tudo está aqui dentro.</td></tr>
+    <tr><td><code>/home</code> <span style="color:var(--lav)">(~)</span></td><td>Seus arquivos pessoais: documentos, fotos, músicas, downloads, dotfiles. Cada usuário tem a sua. O <code>~</code> é um atalho pro seu <code>/home</code>.</td><td>Seu <b>apartamento</b>. Cada morador tem o seu.</td></tr>
+    <tr><td><code>/root</code></td><td>A pasta pessoal do superusuário (o "root", administrador do sistema). Separada do <code>/home</code> comum.</td><td>O <b>apartamento do síndico</b>. Separado dos moradores.</td></tr>
+    <tr><td><code>/etc</code></td><td>Arquivos de configuração do sistema: rede, hostname, serviços, regras. Se algo tem um "como deve funcionar", está aqui.</td><td>O <b>escritório da administração</b>. Regras e contratos do prédio.</td></tr>
+    <tr><td><code>/boot</code></td><td>O kernel e tudo que é necessário pra ligar o computador. Mexer aqui sem saber o que faz pode impedir a máquina de iniciar.</td><td>A <b>casa de máquinas</b>. Não entre sem motivo.</td></tr>
+    <tr><td><code>/var</code></td><td>Dados que mudam o tempo todo: logs, caches, filas de e-mail, bancos de dados. "var" vem de "variable".</td><td>A <b>sala de correio e depósito</b>. Entra e sai coisa toda hora.</td></tr>
+    <tr><td><code>/tmp</code></td><td>Arquivos temporários. O sistema pode limpar essa pasta a qualquer momento (geralmente a cada reinício).</td><td>O <b>quadro de recados do lobby</b>. Escreveu, usou, alguém apagou.</td></tr>
+    <tr><td><code>/usr</code></td><td>Onde ficam a maioria dos programas instalados, bibliotecas e documentação compartilhada. Não confundir com "user" pessoal.</td><td>A <b>oficina compartilhada</b>. Ferramentas que qualquer morador pode usar.</td></tr>
+    <tr><td><code>/opt</code></td><td>Software de terceiros que não veio nos repositórios da distro (apps comerciais, ferramentas específicas).</td><td>A <b>sala comercial</b> do térreo. Espaço pra empresas externas.</td></tr>
+    <tr><td><code>/dev</code></td><td>Representações virtuais do hardware: disco, teclado, mouse, GPU. O Linux trata dispositivos como arquivos.</td><td>O <b>quadro de interfones</b>. Cada um é uma conexão com algo físico.</td></tr>
+    <tr><td><code>/mnt</code></td><td>Ponto de montagem pra pendrives, HDs externos e partições extras.</td><td>A <b>garagem</b>. Onde você encaixa coisas externas.</td></tr>
+  </table>
+
+  <p style="margin-top:12px;font-size:13px;color:var(--faint);line-height:1.7">Existem outros diretórios como <code>/bin</code>, <code>/sbin</code>, <code>/lib</code> e <code>/proc</code>, mas na prática do dia a dia você não precisa interagir com eles. Conforme for se aprofundando, eles vão fazer sentido naturalmente.</p>
+
+  <div class="callout" style="margin-top:14px">
+    <span class="tag">o resumo honesto</span>
+    No dia a dia, você vai viver 90% do tempo no seu <code>/home</code>. O resto existe, funciona e você não precisa mexer a menos que queira. Saber que existe e o que cada pasta faz é o que separa "está usando Linux" de "está entendendo Linux".
+  </div>
+  </div>
+
+  <!-- COLUNA DIREITA: COLINHA DE TERMINAL -->
+  <div class="duo-col">
+  <h3 class="subhead" id="terminal"><span class="mk">#</span> Colinha de terminal</h3>
+  <p style="margin-top:0;margin-bottom:14px;color:var(--muted);font-size:14.5px">Você não precisa decorar 200 comandos. Este post-it cobre o essencial pra sobreviver (e se sentir em casa) no terminal nos primeiros dias.</p>
+
+  <table class="cmp">
+    <tr><th>O que quero fazer</th><th>Comando</th><th>Exemplo</th></tr>
+    <tr><td>Onde estou agora?</td><td><code>pwd</code></td><td><code>pwd</code> -> <code>/home/seuusuario/Documentos</code></td></tr>
+    <tr><td>O que tem nesta pasta?</td><td><code>ls</code></td><td><code>ls</code> (lista) · <code>ls -la</code> (tudo, inclusive ocultos)</td></tr>
+    <tr><td>Ir pra outra pasta</td><td><code>cd</code></td><td><code>cd Documentos</code> · <code>cd ~</code> (home) · <code>cd ..</code> (sobe um nível)</td></tr>
+    <tr><td>Criar um arquivo vazio</td><td><code>touch</code></td><td><code>touch notas.txt</code></td></tr>
+    <tr><td>Criar e já editar um arquivo</td><td><code>nano</code></td><td><code>nano notas.txt</code> (abre um editor no terminal; cria o arquivo se não existir)</td></tr>
+    <tr><td>Criar uma pasta</td><td><code>mkdir</code></td><td><code>mkdir projetos</code></td></tr>
+    <tr><td>Copiar arquivo</td><td><code>cp</code></td><td><code>cp notas.txt backup.txt</code></td></tr>
+    <tr><td>Mover ou renomear</td><td><code>mv</code></td><td><code>mv notas.txt ~/Documentos/</code> · <code>mv velho.txt novo.txt</code></td></tr>
+    <tr><td>Apagar arquivo</td><td><code>rm</code></td><td><code>rm notas.txt</code> · <code>rm -r pasta/</code> (apaga pasta inteira)</td></tr>
+    <tr><td>Ver conteúdo de um arquivo</td><td><code>cat</code></td><td><code>cat notas.txt</code></td></tr>
+    <tr><td>Executar como administrador</td><td><code>sudo</code></td><td><code>sudo apt update</code> (roda com permissão de root)</td></tr>
+    <tr><td>Atualizar o sistema</td><td><i>depende da distro</i></td><td><code>sudo apt update && sudo apt upgrade</code> · <code>sudo dnf upgrade</code> · <code>sudo pacman -Syu</code></td></tr>
+    <tr><td>Limpar o terminal</td><td><code>clear</code></td><td><code>clear</code> (ou atalho: <code>Ctrl + L</code>)</td></tr>
+  </table>
+
+  <h4 style="margin-top:22px;margin-bottom:10px;font-size:14px;color:var(--lav)">Quando se sentir confortável</h4>
+  <table class="cmp">
+    <tr><th>O que quero fazer</th><th>Comando</th><th>Exemplo</th></tr>
+    <tr><td>Buscar texto dentro de arquivos</td><td><code>grep</code></td><td><code>grep "erro" log.txt</code> (procura a palavra "erro" no arquivo)</td></tr>
+    <tr><td>Encontrar um arquivo pelo nome</td><td><code>find</code></td><td><code>find ~/Documentos -name "*.pdf"</code> (acha todos os PDFs)</td></tr>
+    <tr><td>Mudar permissões de um arquivo</td><td><code>chmod</code></td><td><code>chmod +x script.sh</code> (torna executável)</td></tr>
+    <tr><td>Mudar o dono de um arquivo</td><td><code>chown</code></td><td><code>sudo chown maria arquivo.txt</code></td></tr>
+  </table>
+
+  <div class="callout" style="margin-top:14px">
+    <span class="tag">errou um comando?</span>
+    Sem pânico. O terminal quase sempre avisa o que deu errado e, a menos que você use <code>sudo rm -rf</code> em algo importante, dificilmente vai quebrar alguma coisa. A melhor forma de aprender é experimentando: crie uma pasta de testes (<code>mkdir ~/lab</code>) e brinque à vontade.
+  </div>
+  </div>
+
+  </div><!-- /duo-grid -->
 
   <h3 class="subhead"><span class="mk">#</span> Os ambientes e os shells de comando</h3>
   <div class="concepts" style="margin-top:4px">
     <div class="ccard">
       <h4 style="margin-bottom:12px">Desktop Environments mais comuns</h4>
-      <p><b>GNOME</b>: moderno e minimalista, fluxo tipo macOS/iPad (padrão de Ubuntu e Fedora).<br><b>KDE Plasma</b>: "Windows com esteroides", customizável até o último pixel.<br><b>Xfce</b>: leve e clássico.<br><b>Cinnamon</b>: tradicional, do time do Mint.<br><b>MATE</b>: continuação do GNOME 2.<br><b>LXQt</b>: ultra-leve.</p>
+      <p><b>GNOME</b>: moderno e minimalista, fluxo tipo macOS/iPad (padrão de Ubuntu e Fedora).<br><b>KDE Plasma</b>: "Windows com esteroides", customizável até o último pixel.<br><b>Xfce</b>: leve e clássico.<br><b>Cinnamon</b>: tradicional, do time do Mint.<br><b>MATE</b>: cara de GNOME 2.<br><b>LXQt</b>: ultra-leve.<br><b>Budgie</b>: bonito e equilibrado.<br><b>COSMIC</b>: novo, escrito em Rust, da System76.</p>
     </div>
     <div class="ccard">
       <h4 style="margin-bottom:4px">Shells de comando</h4>
@@ -187,10 +292,10 @@
 
   <h3 class="subhead"><span class="mk">#</span> O jargão que você vai ver o tempo todo</h3>
   <table class="cmp">
-    <tr><th>Termo</th><th>O que significa</th><th>Perfil</th></tr>
-    <tr><td><b>Point release</b></td><td>Versões "congeladas" (ex.: Ubuntu 24.04). Você pula de uma versão pra outra de tempos em tempos. Previsível e estável.</td><td>Quem quer paz na estabilidade</td></tr>
-    <tr><td><b>Rolling release</b></td><td>Atualização contínua, sem "versões". Sempre o software mais novo, em troca de um pouco mais de atenção.</td><td>Entusiastas do sistema</td></tr>
-    <tr><td><b>Bleeding edge</b></td><td>"No fio da navalha": o mais novo possível, às vezes antes de estar 100% testado. Mais novidade, mais risco.</td><td>Usuários avançados/com experiência</td></tr>
+    <tr><th>Termo</th><th>O que significa</th><th>Pra quem</th></tr>
+    <tr><td><b>Lançamento pontual</b> (fixo)</td><td>Versões "congeladas" (ex.: Ubuntu 24.04). Você pula de uma versão pra outra de tempos em tempos. Previsível e estável.</td><td>Quem quer paz</td></tr>
+    <tr><td><b>Rolling release</b></td><td>Atualização contínua, sem "versões". Sempre o software mais novo, em troca de um pouco mais de atenção.</td><td>Entusiasta</td></tr>
+    <tr><td><b>Bleeding edge</b></td><td>"No fio da navalha": o mais novo possível, às vezes antes de estar 100% testado. Mais novidade, mais risco.</td><td>Quem gosta de viver perigosamente</td></tr>
     <tr><td><b>LTS</b></td><td>Long Term Support. Uma versão pontual com suporte estendido (tipo 5 anos). Pra ficar parado em paz.</td><td>Empresas, servidores</td></tr>
     <tr><td><b>Imutável / atômica</b></td><td>O sistema-base é somente-leitura e atualiza como um bloco único, que pode ser revertido inteiro. Quase impossível de quebrar.</td><td>Quem quer manutenção zero</td></tr>
   </table>
@@ -203,7 +308,7 @@
 <!-- ============ FAMÍLIAS ============ -->
 <section id="familias" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>01</span> · a árvore genealógica</div>
+    <div class="sec-idx">// a árvore genealógica</div>
     <h2 class="sec-title">Quase ninguém começa do zero</h2>
     <p class="sec-intro">A maioria das distros <b>nasce de outra</b>, herdando gerenciador de pacotes, repositórios e base. Saber a família já te diz 70% da história: o que usar pra instalar programas, onde buscar ajuda e o quão estável tende a ser. As cores deste guia seguem exatamente essas famílias.</p>
   </div>
@@ -232,7 +337,7 @@
     <div class="branch" style="--c:var(--fam-indep)">
       <div class="root">Independentes</div>
       <div class="rootsub">base própria · filosofia</div>
-      <ul><li><b>Gentoo</b> (código-fonte)</li><li><b>NixOS</b> (declarativa)</li><li><b>Slackware</b> (a avó)</li><li>Void, Alpine</li></ul>
+      <ul><li><b>Gentoo</b> (código-fonte)</li><li><b>NixOS</b> (declarativa)</li><li><b>Slackware</b> (a avó)</li><li><b>Void</b> (sem systemd, xbps)</li><li><b>Alpine</b> (micro, containers)</li></ul>
     </div>
     <div class="branch" style="--c:var(--fam-beyond)">
       <div class="root">Fora da família</div>
@@ -245,7 +350,7 @@
 <!-- ============ DEBIAN ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>02</span> · linhagem debian</div>
+    <div class="sec-idx">// linhagem debian</div>
     <h2 class="sec-title">A espinha dorsal do mundo</h2>
     <p class="sec-intro">Se Linux fosse uma cidade, <b>Debian</b> seria as fundações sob o asfalto. Direta ou indiretamente, é a base de boa parte das distros que as pessoas realmente usam no dia a dia.</p>
   </div>
@@ -269,7 +374,7 @@
   <article id="ubuntu" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Ubuntu</span><span class="d-tag">Canonical · o "Linux que todo mundo conhece"</span></div>
     <div class="badges"><span class="badge fam">base · Debian</span><span class="badge fixo">LTS a cada 2 anos</span><span class="badge">apt + Snap</span><span class="badge">empresa</span></div>
-    <p class="d-desc">Pegou o Debian e o deixou <b>amigável e polido</b>, virando porta de entrada de milhões. Tem ciclo previsível: versões <span class="hl">LTS</span> (suporte de 5 anos) para quem quer sossego, e lançamentos a cada 6 meses para quem quer o mais novo. É o alvo nº1 de tutoriais e softwares comerciais: se um app suporta Linux, quase sempre suporta Ubuntu.</p>
+    <p class="d-desc">Pegou o Debian e o deixou <b>amigável e polido</b>, virando porta de entrada de milhões. Tem ciclo previsível: versões <span class="hl">LTS</span> (suporte de 5 anos) para quem quer sossego, e lançamentos a cada 6 meses para quem quer o mais novo. É o alvo nº1 de tutoriais e softwares comerciais: se um app suporta Linux, quase sempre suporta Ubuntu. Controverso pelo formato <b>Snap</b>, que divide opiniões.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">GNOME (bem customizado pela Canonical)</span></div>
       <div class="frow"><span class="k">flavors</span><span class="v">Kubuntu (KDE), Xubuntu (Xfce), Lubuntu (LXQt), Ubuntu MATE, Budgie, Studio</span></div>
@@ -285,7 +390,7 @@
   <article id="mint-zorin" class="distro" style="--c:var(--fam-debian)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Linux Mint &amp; Zorin OS</span><span class="d-tag">os "ex-Windows que dão certo"</span></div>
     <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">foco em conforto</span></div>
-    <p class="d-desc">Agrupei porque têm a <b>mesma missão</b>: receber quem vem do Windows sem susto. O <span class="hl">Mint</span> é o queridinho do iniciante, com interface <b>Cinnamon</b> familiar (menu, barra embaixo), atualizações sem dramas e by default <b>sem Snap</b>. O <span class="hl">Zorin</span> vai além no visual: tem um painel "Zorin Appearance" que reorganiza o desktop pra imitar Windows 11, macOS ou ChromeOS.</p>
+    <p class="d-desc">Agrupei porque têm a <b>mesma missão</b>: receber quem vem do Windows sem susto. O <span class="hl">Mint</span> é o queridinho do iniciante, com interface <b>Cinnamon</b> familiar (menu, barra embaixo), atualizações sem dramas e by default <b>sem Snap</b>. O <span class="hl">Zorin</span> vai além no visual: tem um painel "Zorin Appearance" que reorganiza o desktop pra imitar Windows 11, macOS ou ChromeOS. Ideal pra empresa migrar funcionários sem treinamento.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">Mint: Cinnamon (também MATE, Xfce) · Zorin: GNOME muito customizado</span></div>
       <div class="frow"><span class="k">edições</span><span class="v">Mint: Cinnamon/MATE/Xfce + LMDE (base Debian) · Zorin: Core, Lite, Education, Pro</span></div>
@@ -303,7 +408,7 @@
     <div class="badges"><span class="badge fam">base · Ubuntu</span><span class="badge fixo">pontual</span><span class="badge">apt</span><span class="badge">dev &amp; criativo</span></div>
     <p class="d-desc">Criada pela System76 (fabricante de notebooks Linux), foca em <b>produtividade</b> e em resolver um problema clássico: placas <b>NVIDIA</b> historicamente têm suporte mais complicado no Linux do que as placas <b>AMD</b>, que costumam funcionar "de primeira". O Pop!_OS ataca isso de frente, entregando uma ISO própria com os drivers NVIDIA já embutidos e configurados, o que poupa o usuário da parte chata. De quebra, popularizou o <b>tiling automático</b> antes de virar moda. Hoje está construindo o <span class="hl">COSMIC</span>, um ambiente de desktop novo, escrito em Rust, que muita gente acompanha de perto.</p>
     <div class="ficha">
-      <div class="frow"><span class="k">DE / WM</span><span class="v">COSMIC (novo) · antes GNOME + tiling</span></div>
+      <div class="frow"><span class="k">DE / WM</span><span class="v">COSMIC (novo, em Rust) · antes GNOME + tiling</span></div>
       <div class="frow"><span class="k">público</span><span class="v">Devs, engenheiros, criadores de conteúdo</span></div>
       <div class="frow"><span class="k">casos de uso</span><span class="v">Programação, workstation com GPU, jogos casuais</span></div>
       <div class="frow"><span class="k">sinergia</span><span class="v">GPUs NVIDIA, fluxo com muitas janelas, CUDA/ML</span></div>
@@ -348,7 +453,7 @@
 <!-- ============ ARCH ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>03</span> · linhagem arch</div>
+    <div class="sec-idx">// linhagem arch</div>
     <h2 class="sec-title">Controle total (e o famoso "btw")</h2>
     <p class="sec-intro">Aqui mora a filosofia <b>"você constrói o seu"</b>: nada vem pronto, tudo é escolha sua. Pacote sempre na versão mais recente (<b>rolling release</b>), a lendária <b>Arch Wiki</b> como bíblia e o <b>AUR</b>, um repositório comunitário gigante onde quase tudo existe. É o terreno natural do ricing e dos dotfiles.</p>
   </div>
@@ -388,7 +493,7 @@
     <p class="d-desc">Pega o Arch e adiciona <b>conveniências</b>: instalador gráfico, detecção automática de hardware/drivers e edições prontas com KDE, GNOME ou Xfce. A diferença-chave é que tem <b>repositórios próprios</b> que <span class="hl">seguram os pacotes por ~2 semanas</span> para testá-los antes. Fica mais estável, mas pode causar conflito ao misturar com o AUR (que não espera). Já teve tropeços históricos (certificados expirados), então divide opiniões.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">Edições oficiais: KDE Plasma, GNOME, Xfce</span></div>
-      <div class="frow"><span class="k">público</span><span class="v">Quem quer um ambiente Arch pronto, com GUI pra tudo</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Quem quer "sabor Arch" pronto, com GUI pra tudo</span></div>
       <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop diário, transição confortável pro mundo Arch</span></div>
       <div class="frow"><span class="k">sinergia</span><span class="v">Detecção de GPU automática, usuário que não quer terminal</span></div>
       <div class="frow wide"><span class="k">na prática</span><span class="v">Funciona muito bem out-of-the-box. O cuidado é com o AUR: use com parcimônia para não quebrar pelo descompasso de versões.</span></div>
@@ -414,7 +519,7 @@
   <article id="garuda" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Garuda Linux</span><span class="d-tag">Arch "vitrine de gamer"</span></div>
     <div class="badges"><span class="badge fam">base · Arch</span><span class="badge rolling">rolling</span><span class="badge">pacman + AUR</span><span class="badge">visual + gaming</span></div>
-    <p class="d-desc">É o Arch que entra na sala fazendo barulho: visual <b>exuberante</b> (o tema Dragonized do KDE é marcante), tweaks de performance, <b>zram</b> e, talvez o mais importante, <span class="hl">Btrfs com snapshots automáticos</span>, o que significa que se um update quebrar, você pode "voltar no tempo" em segundos para uma versão estável do seu ambiente. Vem com utilitários gráficos (Garuda Assistant) que centralizam manutenção. Lindo, mas mais "pesado" que outros Arch.</p>
+    <p class="d-desc">É o Arch que entra na sala fazendo barulho: visual <b>exuberante</b> (o tema Dragonized do KDE é marcante), tweaks de performance, <b>zram</b> e, talvez o mais importante, <span class="hl">Btrfs com snapshots automáticos</span>. Se um update quebrar, você volta no tempo em segundos. Vem com utilitários gráficos (Garuda Assistant) que centralizam manutenção. Lindo, mas mais "pesado" que outros Arch.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Dragonized (carro-chefe), também GNOME, Sway, etc.</span></div>
       <div class="frow"><span class="k">público</span><span class="v">Gamer que quer impacto visual sem montar do zero</span></div>
@@ -472,7 +577,7 @@
 <!-- ============ FEDORA / SUSE ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>04</span> · linhagem fedora &amp; suse</div>
+    <div class="sec-idx">// linhagem fedora &amp; suse</div>
     <h2 class="sec-title">A vanguarda equilibrada</h2>
     <p class="sec-intro">O mundo <b>.rpm</b>. Tecnologia de ponta com responsabilidade: novidades chegam cedo, mas testadas. É de onde saem ideias que depois o resto do Linux adota, e o berço das distros <b>atômicas/imutáveis</b>, um dos movimentos mais quentes do momento.</p>
   </div>
@@ -527,7 +632,7 @@
   <article id="opensuse" class="distro" style="--c:var(--fam-suse)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">openSUSE</span><span class="d-tag">a europeia robusta · "duas distros em uma"</span></div>
     <div class="badges"><span class="badge fam">família · SUSE</span><span class="badge fixo">Leap</span><span class="badge rolling">Tumbleweed</span><span class="badge">zypper · .rpm</span></div>
-    <p class="d-desc">Subvalorizada, mas excelente. Oferece dois sabores: <span class="hl">Leap</span> (estável, lançamento pontual, perfeito pra servidor) e <span class="hl">Tumbleweed</span> (rolling, mas <b>testado automaticamente pelo openQA</b>, talvez o rolling mais seguro que existe). O grande diferencial é o <b>YaST</b>, um painel de controle gráfico poderosíssimo que configura quase tudo, e o <b>Btrfs com snapper</b> ("viagem no tempo" comentada anteriormente) para reverter updates.</p>
+    <p class="d-desc">Subvalorizada, mas excelente. Oferece dois sabores: <span class="hl">Leap</span> (estável, lançamento pontual, perfeito pra servidor) e <span class="hl">Tumbleweed</span> (rolling, mas <b>testado automaticamente pelo openQA</b>, talvez o rolling mais seguro que existe). O grande diferencial é o <b>YaST</b>, um painel de controle gráfico poderosíssimo que configura quase tudo, e o <b>Btrfs com snapper</b> para reverter updates.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">KDE Plasma ou GNOME (escolha na instalação)</span></div>
       <div class="frow"><span class="k">variantes</span><span class="v">Leap, Tumbleweed; Aeon/Kalpa (atômicas)</span></div>
@@ -543,7 +648,7 @@
 <!-- ============ SEGURANÇA ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>05</span> · ferramentas especializadas</div>
+    <div class="sec-idx">// ferramentas especializadas</div>
     <h2 class="sec-title">Segurança &amp; privacidade</h2>
     <p class="sec-intro">Estas <b>não são</b> para o dia a dia. São ferramentas de propósito específico. Usá-las como sistema principal é como usar uma furadeira de bancada pra pendurar um quadro.</p>
   </div>
@@ -581,7 +686,7 @@
 <!-- ============ FILOSÓFICAS ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>06</span> · independentes &amp; filosóficas</div>
+    <div class="sec-idx">// independentes &amp; filosóficas</div>
     <h2 class="sec-title">Aos que pensam diferente</h2>
     <p class="sec-intro">Não derivam de ninguém e existem para provar um <b>ponto de design</b>. Mexer com elas é menos sobre produtividade e mais sobre <b>entender computação a fundo</b>. Cada uma reescreve uma regra que todo mundo dá como certa.</p>
   </div>
@@ -631,12 +736,44 @@
       <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
     </div>
   </article>
+
+  <article id="void" class="distro" style="--c:var(--fam-indep)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Void Linux</span><span class="d-tag">minimalista, independente, sem systemd</span></div>
+    <div class="badges"><span class="badge fam">independente</span><span class="badge rolling">rolling</span><span class="badge">xbps</span><span class="badge">runit</span><span class="badge">musl (opcional)</span></div>
+    <p class="d-desc">Construída do zero, sem derivar de ninguém. O ponto de design do Void é a <b>independência radical</b>: usa <span class="hl">runit</span> como sistema de inicialização em vez do systemd que domina quase todas as outras distros, resultando em boots rápidos e um sistema enxuto por natureza. O gerenciador de pacotes é o <b>xbps</b>, rápido e limpo. É rolling release, mas com curadoria: os pacotes passam por testes antes de chegar no repositório, então é surpreendentemente estável pra uma rolling. Tem ainda uma variante com <b>musl</b> (uma biblioteca padrão alternativa, mais leve que a convencional) pra quem quer o sistema ainda mais enxuto. A filosofia lembra o Arch (você monta do seu jeito), mas com uma identidade completamente própria.</p>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Nenhum por padrão. Você escolhe e instala</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">Entusiasta que quer independência total e um sistema limpo</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Desktop minimalista, servidores leves, aprendizado</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">runit, musl, quem quer fugir do systemd sem sacrificar usabilidade</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Se o Arch é "monte o seu desktop", o Void é "monte o seu desktop, mas com outra fundação inteira por baixo". Atrai quem quer entender o sistema sem depender das decisões que a maioria das distros tomou por padrão.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><span class="lbl">avançado</span></span></span></div>
+    </div>
+  </article>
+
+  <article id="alpine" class="distro" style="--c:var(--fam-indep)"><div class="glow"></div>
+    <div class="d-head"><span class="d-name">Alpine Linux</span><span class="d-tag">micro, seguro, o rei dos containers</span></div>
+    <div class="badges"><span class="badge fam">independente</span><span class="badge fixo">pontual</span><span class="badge">apk</span><span class="badge">musl · BusyBox</span><span class="badge">containers</span></div>
+    <p class="d-desc">Se o Void é enxuto, o Alpine é <b>microscópico</b>. A instalação base ocupa algo em torno de 5 a 8 MB. Usa <span class="hl">musl</span> e <span class="hl">BusyBox</span> (um único binário que substitui centenas de utilitários tradicionais) com <b>OpenRC</b> como init. Essa leveza absurda tem um efeito colateral importantíssimo: o Alpine se tornou a <b>base padrão da maioria das imagens Docker</b>. Quando alguém escreve <code>FROM alpine</code> num Dockerfile, é esta distro. Como desktop do dia a dia é pouco prático, mas como servidor, container ou sistema embarcado, é imbatível em eficiência.</p>
+    <div class="callout">
+      <span class="tag">você provavelmente já usou Alpine</span>
+      Se alguma vez rodou um container Docker, há uma boa chance de que o Alpine estava lá por baixo: silencioso, ocupando quase nada e fazendo exatamente o que foi pedido.
+    </div>
+    <div class="ficha">
+      <div class="frow"><span class="k">DE / WM</span><span class="v">Possível, mas raro. O foco é servidor e container</span></div>
+      <div class="frow"><span class="k">público</span><span class="v">DevOps, quem trabalha com containers, sistemas embarcados</span></div>
+      <div class="frow"><span class="k">casos de uso</span><span class="v">Imagens Docker, microserviços, firewalls, IoT, VMs leves</span></div>
+      <div class="frow"><span class="k">sinergia</span><span class="v">Docker, Kubernetes, ambientes cloud-native, infraestrutura mínima</span></div>
+      <div class="frow wide"><span class="k">na prática</span><span class="v">Raramente você instala o Alpine como SO principal. Ele aparece nos bastidores: como base de containers, em roteadores, em appliances. É o tipo de distro que você encontra rodando há anos numa máquina que ninguém lembrava que existia.</span></div>
+      <div class="frow wide"><span class="k">dificuldade</span><span class="v"><span class="diff"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><span class="lbl">intermediário</span></span></span></div>
+    </div>
+  </article>
 </section>
 
 <!-- ============ ALÉM DO LINUX ============ -->
 <section class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>07</span> · nas fronteiras</div>
+    <div class="sec-idx">// nas fronteiras</div>
     <h2 class="sec-title">Onde o mapa se expande</h2>
     <p class="sec-intro">Três casos que <b>esticam a definição</b> do que estamos falando. Mostram o quão longe esse mundo vai.</p>
   </div>
@@ -675,7 +812,7 @@
 <!-- ============ WINDOW MANAGERS ============ -->
 <section id="wm" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>08</span> · a camada visual, parte 1</div>
+    <div class="sec-idx">// a camada visual, parte 1</div>
     <h2 class="sec-title">Window Managers</h2>
     <p class="sec-intro">Lembra que o WM só cuida das janelas? Quem larga o Desktop Environment pronto e monta tudo em volta de um WM entra no território do <b>ricing</b>: desktops totalmente sob medida, controlados por teclado. Os três modelos de organização:</p>
   </div>
@@ -703,7 +840,7 @@
       <div class="top"><h4>Niri</h4><span class="pill way">Wayland</span></div>
       <div class="cfg">scrollable tiling · escrito em Rust</div>
       <div class="wmviz"><span style="flex:1"></span><span style="flex:1"></span><span style="flex:1;opacity:.5"></span><span style="flex:1;opacity:.25"></span></div>
-      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust e sendo estável como daily driver, ganhou tração rápido e se tornou o queridinho em 2026, principalmente se for usado no NixOS.</p>
+      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust, estável como daily driver, e com XWayland integrado via xwayland-satellite nas versões recentes. Ganhou tração rápido e é o queridinho de 2025/26.</p>
     </div>
     <div class="wm">
       <div class="top"><h4>Sway</h4><span class="pill way">Wayland</span></div>
@@ -754,7 +891,7 @@
 <!-- ============ QUICKSHELL ============ -->
 <section id="quickshell" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>09</span> · a camada visual, parte 2</div>
+    <div class="sec-idx">// a camada visual, parte 2</div>
     <h2 class="sec-title">Shells de desktop · o universo Quickshell</h2>
     <p class="sec-intro">Atenção à palavra: aqui <b>"shell" não é o terminal</b> (bash/zsh). É a <b>camada visual</b> que vive em cima do compositor: barras, launcher, central de notificações, widgets, tela de bloqueio. O WM organiza janelas; o "shell de desktop" é a interface ao redor delas.</p>
   </div>
@@ -790,7 +927,7 @@
 <!-- ============ GUIA DE DECISÃO ============ -->
 <section id="guia" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>10</span> · guia de decisão</div>
+    <div class="sec-idx">// guia de decisão</div>
     <h2 class="sec-title">Qual distro escolher?</h2>
     <p class="sec-intro">Com tantas opções, a escolha pode paralisar. Este guia corta o ruído e te ajuda a <b>pensar sobre o que combina com o seu perfil</b>. A regra de ouro: a melhor distro é a que some do caminho e te deixa fazer o que precisa.</p>
   </div>
@@ -825,7 +962,7 @@
     </div>
 
     <div class="verdict">
-      <b>Um insight da atualidade:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
+      <b>O insight de 2026:</b> a escolha de distro importa muito menos do que importava há 10 anos. Com Flatpak universal, dotfiles versionados no Git e hardware bem suportado, você pode trocar de distro <b>sem trocar de software, sem perder configuração e sem perder workflow</b>. Escolha uma, comece, e adapte depois.
     </div>
   </div>
 </section>
@@ -833,7 +970,7 @@
 <!-- ============ QUIZ DE DECISÃO ============ -->
 <section id="quiz" class="reveal">
   <div class="sec-head">
-    <div class="sec-idx">// <span>11</span> · quiz interativo</div>
+    <div class="sec-idx">// quiz interativo</div>
     <h2 class="sec-title">Descubra sua distro</h2>
     <p class="sec-intro">Cinco perguntas rápidas e o Atlas <b>sugere</b> um ponto de partida que costuma combinar com o seu perfil, com uma segunda opção pra comparar. Pense nisso como uma bússola, não um trilho: a decisão é sua. Tudo roda no seu navegador, nada é enviado a lugar nenhum.</p>
   </div>
@@ -847,7 +984,7 @@
 <footer class="wrap">
   <div class="big">Fim do mapa. Mas não da exploração.</div>
   <p>Este documento é um <b>retrato de 2026</b>: o ecossistema Linux se move rápido (sobretudo a cena Wayland/Quickshell). Trate-o como dotfiles, um artefato vivo, pra revisar e versionar quando algo mudar.</p>
-  <p style="margin-top:18px;color:var(--faint)">// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"</p>
+  <p style="margin-top:18px;color:var(--faint)">// cores = famílias · dificuldade = 1–5 blocos<br>// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"<br>// próxima revisão sugerida: quando o COSMIC DE sair stable ou o Niri 1.0 chegar</p>
   <p style="margin-top:14px"><b>Atlas Linux</b> é um projeto open-source. Contribuições, correções e traduções são bem-vindas.</p>
 </footer>
 
