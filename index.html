@@ -91,7 +91,7 @@
     <b>UNIX</b> (anos 1970) foi o sistema que inventou as ideias que usamos até hoje: o terminal, "tudo é arquivo", programinhas que se combinam. Só que era fechado e caro. Nos anos 1980, o projeto <b>GNU</b> nasceu pra criar um UNIX livre e gratuito, e produziu quase todas as peças (o terminal, os utilitários, o compilador), mas faltava o núcleo. Em 1991, o <b>kernel Linux</b> entrou exatamente nesse buraco. Por isso o nome tecnicamente correto do sistema é <b>GNU/Linux</b>: as ferramentas GNU rodando sobre o kernel Linux. No dia a dia, todo mundo chama só de "Linux".
   </div>
 
-  <div class="concepts">
+  <div class="concepts c7">
     <div class="ccard">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
       <h4>Kernel</h4>
@@ -456,7 +456,7 @@
   <article id="arch" class="distro" style="--c:var(--fam-arch)"><div class="glow"></div>
     <div class="d-head"><span class="d-name">Arch Linux</span><span class="d-tag">"I use Arch, btw"</span></div>
     <div class="badges"><span class="badge fam">família · raiz</span><span class="badge rolling">rolling release</span><span class="badge">pacman + AUR</span><span class="badge">DIY</span></div>
-    <p class="d-desc">A distro do <b>minimalismo radical</b>: instala só o essencial e te deixa montar o resto, peça por peça. Isso parece intimidador, mas o resultado é um sistema que você <b>entende de cabo a rabo</b> e que tem exatamente o que você quer. Sem inchaço. Hoje há o instalador <code>archinstall</code> que facilita, mas o valor real continua sendo o aprendizado. A <span class="hl">Arch Wiki</span> é tão boa que até usuários de outras distros a consultam.</p>
+    <p class="d-desc">A distro do <b>minimalismo radical</b>: instala só o essencial e te deixa montar o resto, peça por peça. Isso parece intimidador, mas o resultado é um sistema que você <b>entende de cabo a rabo</b> e que tem exatamente o que você quer. Sem inchaço. Hoje há o instalador <code>archinstall</code> que facilita, mas o valor real continua sendo o aprendizado. A <span class="hl">Arch Wiki</span> é tão boa que até usuários de outras distros a consultam. E tem o trunfo do <b>AUR</b> (Arch User Repository): um repositório gigante mantido pela própria comunidade, onde se encontra praticamente qualquer programa, inclusive os que nenhuma outra distro empacota. O <code>pacman</code>, gerenciador oficial do Arch, não acessa o AUR sozinho, então entram os <b>AUR helpers</b> como o <code>yay</code> e o <code>paru</code>: eles baixam, compilam e instalam pacotes do AUR com um comando só, resolvendo as dependências no caminho. O preço dessa liberdade: pacotes do AUR são enviados por usuários e não passam por auditoria oficial, então vale dar uma olhada no que está instalando.</p>
     <div class="ficha">
       <div class="frow"><span class="k">DE / WM</span><span class="v">Nenhum por padrão. Você escolhe (e é o ponto)</span></div>
       <div class="frow"><span class="k">derivados</span><span class="v">EndeavourOS, Manjaro, CachyOS, Garuda, Omarchy, Artix, ArcoLinux, RebornOS</span></div>
@@ -835,7 +835,7 @@
       <div class="top"><h4>Niri</h4><span class="pill way">Wayland</span></div>
       <div class="cfg">scrollable tiling · escrito em Rust</div>
       <div class="wmviz"><span style="flex:1"></span><span style="flex:1"></span><span style="flex:1;opacity:.5"></span><span style="flex:1;opacity:.25"></span></div>
-      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust, estável como daily driver, e com XWayland integrado via xwayland-satellite nas versões recentes. Ganhou tração rápido e é o queridinho de 2025/26.</p>
+      <p>O <b>paradigma novo</b>: inspirado no PaperWM, em vez de espremer janelas na tela, ele as enfileira em colunas numa fita horizontal infinita por onde você rola. Abrir uma janela nova <b>nunca redimensiona as outras</b>. Resolve a dor do tiling tradicional em telas pequenas e brilha em ultrawides/multi-monitor. Escrito em Rust, estável como daily driver, e com XWayland integrado via xwayland-satellite nas versões recentes. Ganhou tração rápido e virou um dos queridinhos do momento.</p>
     </div>
     <div class="wm">
       <div class="top"><h4>Sway</h4><span class="pill way">Wayland</span></div>
@@ -979,7 +979,10 @@
 <footer class="wrap">
   <div class="big">Fim do mapa. Mas não da exploração.</div>
   <p>Este documento é um <b>retrato do momento atual</b>: o ecossistema Linux se move rápido (sobretudo a cena Wayland/Quickshell). Trate-o como dotfiles, um artefato vivo, pra revisar e versionar quando algo mudar.</p>
+<<<<<<< HEAD
   <p style="margin-top:18px;color:var(--faint)">// cores = famílias · dificuldade = 1–5 blocos<br>// "a melhor distro é a que some do caminho e te deixa fazer seu trabalho"</p>
+=======
+>>>>>>> 8b91613 (limpeza de conteúdo e layout)
   <p style="margin-top:14px"><b>Atlas Linux</b> é um projeto open-source. Contribuições, correções e traduções são bem-vindas.</p>
 </footer>
 
