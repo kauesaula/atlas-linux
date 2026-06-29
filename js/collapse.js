@@ -10,6 +10,7 @@
     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<path d="m6 9 6 6 6-6"/></svg>';
 
+  const LABEL = (document.body.dataset.collapseLabel) || 'ficha';
   const cards = [];
 
   document.querySelectorAll('.distro').forEach((card) => {
@@ -38,7 +39,7 @@
     btn.type = 'button';
     btn.className = 'd-toggle';
     btn.setAttribute('aria-expanded', 'true');
-    btn.innerHTML = '<span class="lbl">ficha</span>' + CHEVRON;
+    btn.innerHTML = '<span class="lbl">' + LABEL + '</span>' + CHEVRON;
     head.appendChild(btn);
 
     const entry = { card, btn, body };
