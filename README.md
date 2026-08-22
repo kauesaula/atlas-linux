@@ -33,18 +33,18 @@ atlas-linux/
 ├── index.html
 ├── wm-viz.html
 ├── css/
-│   ├── base.css
-│   └── interactive.css
+    ├── base.css
+    └── interactive.css
 ├── js/
-│   ├── nav.js
-│   ├── collapse.js
-│   ├── quiz.js
+    ├── nav.js
+    ├── collapse.js
+    ├── quiz.js
     ├── quiz-strings.js
     └── wm-viz.js
 ├── i18n/
     └── _template.json
 ├── scripts/
-│   └── build-i18n.js
+    └── build-i18n.js
 ├── mapa-linux.md
 ├── LICENSE
 ├── LICENSE-CONTENT
