@@ -51,11 +51,6 @@ adicionada por cima, sem alterar os tokens ou os componentes existentes.
 
 ---
 
-## 🤝 Contribuindo
-
-O ecossistema Linux se move rápido, então correções, novas distros e traduções são bem-vindas via issue ou pull request.
-
-
 ## Autoria e licenciamento
 
 O **Atlas Linux** é um projeto pessoal e independente, criado e mantido por
@@ -110,9 +105,13 @@ inalienáveis e irrenunciáveis. As licenças acima concedem direitos
 patrimoniais de uso; nada nelas implica renúncia ao direito de
 reivindicação de autoria.
 
-### Contribuições
+---
+
+### 🤝 Contribuições
+O ecossistema Linux se move rápido, então correções, novas distros e traduções são bem-vindas via issue ou pull request.
 
 Ao enviar um pull request, você concorda em licenciar sua contribuição sob
 os mesmos termos: MIT para código e CC BY 4.0 para conteúdo.
+
 
 [MIT](./LICENSE) © 2026 kauesaula.
