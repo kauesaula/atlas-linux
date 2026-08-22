@@ -33,26 +33,26 @@ atlas-linux/
 ├── index.html
 ├── wm-viz.html
 ├── css/
-    ├── base.css
-    └── interactive.css
+│    ├── base.css
+│    └── interactive.css
 ├── js/
-    ├── nav.js
-    ├── collapse.js
-    ├── quiz.js
-    ├── quiz-strings.js
-    └── wm-viz.js
+│    ├── nav.js
+│    ├── collapse.js
+│    ├── quiz.js
+│    ├── quiz-strings.js
+│    └── wm-viz.js
 ├── i18n/
-    └── _template.json
+│    └── _template.json
 ├── scripts/
-    └── build-i18n.js
+│    └── build-i18n.js
 ├── mapa-linux.md
 ├── LICENSE
 ├── LICENSE-CONTENT
 ├── CREDITOS.md
 ├── README.md
 └── .nojekyll
-```
 
+```
 O **design system** vive intacto em `css/base.css`; toda a camada interativa foi
 adicionada por cima, sem alterar os tokens ou os componentes existentes.
 
