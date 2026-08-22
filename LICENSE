@@ -19,3 +19,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+NOTA DE ESCOPO
+
+Esta licença cobre a CAMADA DE CÓDIGO do projeto Atlas Linux: marcação HTML,
+folhas de estilo CSS, scripts JavaScript, scripts de build em Node.js e
+Python, arquivos de configuração e a arquitetura do projeto.
+
+O CONTEÚDO EDITORIAL do projeto (textos em linguagem natural: perfis de
+distribuições, textos do guia, enunciados e alternativas do quiz, e os
+valores de tradução em i18n/*.json) NÃO é coberto por esta licença. Ele é
+licenciado sob Creative Commons Atribuição 4.0 Internacional (CC BY 4.0).
+Ver o arquivo LICENSE-CONTENT.

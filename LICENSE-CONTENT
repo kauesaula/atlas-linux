@@ -1,0 +1,90 @@
+Atlas Linux — Licença do conteúdo editorial
+
+Copyright (c) 2026 kauesaula
+Todos os direitos não expressamente concedidos abaixo permanecem reservados.
+
+================================================================
+LICENÇA
+================================================================
+
+O conteúdo editorial deste projeto está licenciado sob a
+
+    Creative Commons Atribuição 4.0 Internacional
+    (CC BY 4.0)
+
+Identificador SPDX .... CC-BY-4.0
+Texto legal completo .. https://creativecommons.org/licenses/by/4.0/legalcode.pt
+Resumo legível ........ https://creativecommons.org/licenses/by/4.0/deed.pt-br
+
+A concessão desta licença é irrevogável e vale por todo o prazo de proteção
+dos direitos autorais aplicáveis, conforme os próprios termos da CC BY 4.0.
+
+================================================================
+ESCOPO — O QUE ESTE ARQUIVO COBRE
+================================================================
+
+COBERTO (conteúdo editorial):
+
+  - Os textos em linguagem natural contidos nos arquivos HTML: perfis de
+    distribuições, descrições, fichas, callouts, títulos, textos do guia
+    de decisão e demais textos redacionais.
+  - Os enunciados, alternativas e textos de resultado do quiz.
+  - Os arquivos Markdown de conteúdo (mapa-linux.md e equivalentes).
+  - Os VALORES de tradução dos arquivos i18n/*.json.
+  - A curadoria, seleção, sequência e organização editorial do material.
+
+NÃO COBERTO (é código, sob MIT — ver LICENSE):
+
+  - A marcação HTML em si: tags, atributos, classes, estrutura do documento.
+  - As folhas de estilo CSS e o design system (tokens, variáveis, layout).
+  - Os scripts JavaScript, incluindo a lógica do quiz e a navegação.
+  - Os scripts de build (Node.js) e de validação (Python).
+  - As CHAVES dos arquivos i18n/*.json e o formato do arquivo.
+
+REGRA DE FRONTEIRA: em arquivos que misturam as duas camadas, o continente
+é código e o conteúdo é conteúdo. A estrutura que envolve o texto está sob
+MIT; o texto que ela envolve está sob CC BY 4.0.
+
+================================================================
+O QUE VOCÊ PODE FAZER
+================================================================
+
+  - Compartilhar: copiar e redistribuir o material em qualquer suporte
+    ou formato.
+  - Adaptar: remixar, transformar e criar a partir do material, para
+    qualquer fim, inclusive comercial.
+
+================================================================
+CONDIÇÃO ÚNICA: ATRIBUIÇÃO
+================================================================
+
+Em qualquer redistribuição ou adaptação, você deve:
+
+  1. Dar o crédito apropriado, identificando o autor original;
+  2. Fornecer um link para esta licença;
+  3. Indicar se mudanças foram feitas.
+
+Você pode fazê-lo de qualquer forma razoável, mas não de maneira que
+sugira que o licenciante endossa você ou o seu uso.
+
+Modelo de atribuição sugerido:
+
+    "Atlas Linux" por kauesaula, licenciado sob CC BY 4.0.
+    Fonte: https://github.com/kauesaula/atlas-linux
+    Licença: https://creativecommons.org/licenses/by/4.0/
+    [Indicar aqui se o material foi modificado.]
+
+================================================================
+DIREITOS MORAIS
+================================================================
+
+Nos termos do art. 27 da Lei nº 9.610/98 (Brasil), os direitos morais de
+autor são inalienáveis e irrenunciáveis. Nada nesta licença implica
+renúncia ao direito de reivindicar a autoria da obra ou de opor-se a
+modificações que prejudiquem a reputação ou a honra do autor.
+
+================================================================
+CRÉDITOS DE TERCEIROS
+================================================================
+
+Ver o arquivo CREDITOS.md.
