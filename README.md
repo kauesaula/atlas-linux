@@ -30,20 +30,27 @@ Site estático, sem build e sem dependências. Abra o `index.html` ou acesse a v
 
 ```
 atlas-linux/
-├── index.html              # markup (conteúdo do guia)
+├── index.html
+├── wm-viz.html
 ├── css/
-│   ├── base.css            # design system original — tokens, layout, componentes
-│   └── interactive.css     # estilos novos: toolbar, filtros, colapso, quiz
+│   ├── base.css
+│   └── interactive.css
 ├── js/
-│   ├── nav.js              # scroll-spy + reveal das seções
-│   ├── collapse.js         # cards colapsáveis (ficha técnica)
-│   ├── explorer.js         # filtro por família + busca
-│   └── quiz.js             # quiz de decisão
-├── o-grande-mapa-do-linux.md   # documento-fonte (versão longa em Markdown)
-├── .github/workflows/pages.yml # deploy automático no GitHub Pages
-├── .nojekyll               # serve arquivos como estão (sem processamento Jekyll)
+│   ├── nav.js
+│   ├── collapse.js
+│   ├── quiz.js
+    ├── quiz-strings.js
+    └── wm-viz.js
+├── i18n/
+    └── _template.json
+├── scripts/
+│   └── build-i18n.js
+├── mapa-linux.md
 ├── LICENSE
-└── README.md
+├── LICENSE-CONTENT
+├── CREDITOS.md
+├── README.md
+└── .nojekyll
 ```
 
 O **design system** vive intacto em `css/base.css`; toda a camada interativa foi
@@ -114,4 +121,4 @@ Ao enviar um pull request, você concorda em licenciar sua contribuição sob
 os mesmos termos: MIT para código e CC BY 4.0 para conteúdo.
 
 
-[MIT](./LICENSE) © 2026 kauesaula.
+Código sob [MIT](./LICENSE) · Conteúdo sob [CC BY 4.0](./LICENSE-CONTENT) · © 2026 kauesaula
